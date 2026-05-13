@@ -1,0 +1,64 @@
+# Java / Maven
+target/
+*.class
+*.jar
+*.war
+.mvn/
+mvnw
+mvnw.cmd
+.classpath
+.project
+.settings/
+.idea/
+*.iml
+*.iws
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+*.egg-info/
+
+# MLX / ML artifacts
+ml/adapters/
+ml/data/*.jsonl
+ml/kazgpt-merged/
+ml/train.log
+ml/*.npz
+ml/*.safetensors
+
+# HuggingFace cache
+.cache/
+**/transformers/
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDE
+.vscode/
+*.code-workspace
+
+# Logs
+*.log
+logs/
+
+# Env
+.env
+.env.local
+
+# Demo backup
+demo/demo_video.mp4
+demo/*.mov
+demo/*.mp4
+
+# Build artifacts
+dist/
+build/
+out/

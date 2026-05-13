@@ -1,0 +1,47 @@
+server:
+  port: 8080
+  compression:
+    enabled: true
+
+spring:
+  application:
+    name: KazGPT
+  mvc:
+    static-path-pattern: /**
+
+kazgpt:
+  version: "1.0"
+  demo-mode: false
+  cache-file: classpath:cached_responses.json
+
+  models:
+    base:
+      url: http://localhost:11434
+      name: qwen2.5:7b
+      runtime: ollama
+    v2:
+      url: http://localhost:11435
+      name: kazgpt-v2
+      runtime: mlx
+
+  generation:
+    temperature: 0.3
+    top-p: 0.8
+    repeat-penalty: 1.2
+    max-tokens: 512
+
+  system-prompt: |
+    Сен — KazGPT, қазақ тілінде еркін сөйлейтін жасанды интеллект көмекшісісің.
+    Сені Назарбаев Университетінің ISSAI зертханасының жұмыстары шабыттандырған.
+
+    ҚАТАЛ ЕРЕЖЕЛЕР:
+    1. ӘРДАЙЫМ қазақ тілінде жауап бер, тіпті сұрақ орыс немесе ағылшын тілінде болса да.
+    2. Жауаптарың ҚЫСҚА және ТҮСІНІКТІ болсын — 2-3 сөйлемнен аспасын.
+    3. БІЛМЕЙТІН сұраққа: "Кешіріңіз, бұл сұраққа жауап бере алмаймын" деп жауап бер.
+    4. Айқын білмесең — болжам жасама, ойдан шығарма.
+    5. Мейірімді, сыпайы және пайдалы бол.
+
+logging:
+  level:
+    kz.kazgpt: INFO
+    org.springframework.web.reactive: WARN

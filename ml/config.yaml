@@ -1,0 +1,24 @@
+model: "mlx-community/Qwen2.5-1.5B-Instruct-4bit"
+
+train: true
+data: "./data"
+
+seed: 42
+lora_layers: 4
+batch_size: 1
+iters: 200
+val_batches: 10
+learning_rate: 1.0e-4
+steps_per_eval: 50
+steps_per_report: 10
+max_seq_length: 512
+
+adapter_path: "./adapters"
+save_every: 50
+
+resume_adapter_file: null
+
+test: false
+test_batches: 50
+
+grad_checkpoint: true

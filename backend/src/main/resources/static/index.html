@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KazGPT — Қазақ тіліндегі жасанды интеллект</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <div class="app">
+        <header>
+            <div class="brand">
+                <span class="brand-icon">🇰🇿</span>
+                <span class="brand-text">Kaz<span class="brand-accent">GPT</span></span>
+            </div>
+            <div class="header-controls">
+                <select id="modelSelect" class="model-select" title="Модельді таңдау">
+                    <option value="base">qwen2.5:7b (base)</option>
+                    <option value="v2">KazGPT v2 (fine-tuned)</option>
+                </select>
+                <button class="ghost-btn" id="newChatBtn" title="Жаңа сұхбат">＋</button>
+            </div>
+        </header>
+
+        <main class="chat" id="chat">
+            <div class="welcome">
+                <div class="welcome-icon">🤖</div>
+                <h1>KazGPT</h1>
+                <p>Қазақ тілінде еркін сөйлейтін жасанды интеллект көмекшісі</p>
+                <div class="suggestions">
+                    <button class="suggestion" data-q="Сәлем! Өзің туралы айтып бер">Өзің туралы айт</button>
+                    <button class="suggestion" data-q="Алматы туралы қысқаша мәлімет бер">Алматы туралы</button>
+                    <button class="suggestion" data-q="Қазақстанның астанасы қандай?">Астана туралы</button>
+                    <button class="suggestion" data-q="Нейрондық желі дегеніміз не?">Нейрондық желі</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="composer">
+            <div class="input-wrap">
+                <textarea id="input" placeholder="Сұрағыңызды жазыңыз..." rows="1"></textarea>
+                <button id="sendBtn" class="send-btn" title="Жіберу">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M2 12l20-9-9 20-2-9-9-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="currentColor"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="hint">
+                <span id="statusDot" class="status-dot"></span>
+                <span id="statusText">Күту режимінде</span>
+                <span class="hint-version">v1.0 · локальный LLM</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
