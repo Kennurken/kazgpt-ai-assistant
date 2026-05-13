@@ -81,9 +81,18 @@ def add_manual_examples():
 
 def split_and_save(records):
     random.shuffle(records)
-    train = records[:TRAIN_LIMIT]
-    valid = records[TRAIN_LIMIT:TRAIN_LIMIT + VALID_LIMIT]
-    test = records[TRAIN_LIMIT + VALID_LIMIT:TRAIN_LIMIT + VALID_LIMIT + TEST_LIMIT]
+    n = len(records)
+
+    if n >= TRAIN_LIMIT + VALID_LIMIT + TEST_LIMIT:
+        train = records[:TRAIN_LIMIT]
+        valid = records[TRAIN_LIMIT:TRAIN_LIMIT + VALID_LIMIT]
+        test = records[TRAIN_LIMIT + VALID_LIMIT:TRAIN_LIMIT + VALID_LIMIT + TEST_LIMIT]
+    else:
+        v_size = max(20, n // 10)
+        t_size = max(20, n // 10)
+        valid = records[:v_size]
+        test = records[v_size:v_size + t_size]
+        train = records[v_size + t_size:]
 
     for name, data in [("train", train), ("valid", valid), ("test", test)]:
         path = DATA_DIR / f"{name}.jsonl"
