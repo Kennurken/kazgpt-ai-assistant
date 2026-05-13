@@ -81,14 +81,28 @@ async function send() {
 
         const reader = res.body.getReader();
         const decoder = new TextDecoder('utf-8');
+        let buffer = '';
 
         while (true) {
             const { done, value } = await reader.read();
             if (done) break;
-            const chunk = decoder.decode(value, { stream: true });
-            const tokens = parseSSE(chunk);
-            for (const t of tokens) {
-                accumulator += t;
+            buffer += decoder.decode(value, { stream: true });
+
+            let idx;
+            while ((idx = buffer.indexOf('\n\n')) >= 0) {
+                const event = buffer.slice(0, idx);
+                buffer = buffer.slice(idx + 2);
+                const token = parseSSEEvent(event);
+                if (token) {
+                    accumulator += token;
+                    updateMessage(botEl, accumulator);
+                }
+            }
+        }
+        if (buffer.trim()) {
+            const token = parseSSEEvent(buffer);
+            if (token) {
+                accumulator += token;
                 updateMessage(botEl, accumulator);
             }
         }
@@ -106,20 +120,21 @@ async function send() {
     }
 }
 
-function parseSSE(chunk) {
-    const tokens = [];
-    const lines = chunk.split('\n');
+function parseSSEEvent(eventText) {
+    const lines = eventText.split('\n');
+    const dataLines = [];
     for (const raw of lines) {
-        const line = raw.trim();
-        if (!line) continue;
-        if (line.startsWith('data:')) {
-            const data = line.slice(5).trimStart();
-            if (data && data !== '[DONE]') tokens.push(data);
-        } else if (line === ':') {
-            continue;
+        if (raw.startsWith('data:')) {
+            // Spring's SSE encoder writes "data:<value>" without a cosmetic space,
+            // so leading whitespace in the value is genuine content (BPE tokens often
+            // begin with " "). Preserve it exactly.
+            dataLines.push(raw.slice(5));
         }
     }
-    return tokens;
+    if (dataLines.length === 0) return null;
+    const joined = dataLines.join('\n');
+    if (joined === '[DONE]') return null;
+    return joined;
 }
 
 function addMessage(role, text) {
