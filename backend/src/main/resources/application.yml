@@ -21,7 +21,7 @@ kazgpt:
       runtime: ollama
     v2:
       url: http://localhost:11435
-      name: kazgpt-v2
+      name: mlx-community/Qwen2.5-1.5B-Instruct-4bit
       runtime: mlx
 
   generation:
