@@ -76,11 +76,21 @@ public class ChatService {
     }
 
     private Map<String, Object> generationOptions() {
+        // Ollama options: см. https://github.com/ollama/ollama/blob/main/docs/api.md#parameters
+        // Все параметры подбираем для борьбы с loops + сохранения краткости (KazGPT system-prompt).
+        var g = props.getGeneration();
         Map<String, Object> opts = new LinkedHashMap<>();
-        opts.put("temperature", props.getGeneration().getTemperature());
-        opts.put("top_p", props.getGeneration().getTopP());
-        opts.put("repeat_penalty", props.getGeneration().getRepeatPenalty());
-        opts.put("num_predict", props.getGeneration().getMaxTokens());
+        opts.put("temperature", g.getTemperature());
+        opts.put("top_p", g.getTopP());
+        opts.put("top_k", g.getTopK());
+        if (g.getMinP() > 0) opts.put("min_p", g.getMinP());
+        opts.put("repeat_penalty", g.getRepeatPenalty());
+        opts.put("repeat_last_n", g.getRepeatLastN());
+        opts.put("num_predict", g.getMaxTokens());
+        opts.put("num_ctx", g.getNumCtx());
+        if (g.getPresencePenalty() != 0) opts.put("presence_penalty", g.getPresencePenalty());
+        if (g.getFrequencyPenalty() != 0) opts.put("frequency_penalty", g.getFrequencyPenalty());
+        if (g.getStop() != null && !g.getStop().isEmpty()) opts.put("stop", g.getStop());
         return opts;
     }
 
@@ -106,13 +116,19 @@ public class ChatService {
     }
 
     private Flux<String> streamOpenAI(WebClient client, String modelName, List<Message> messages) {
+        // OpenAI-совместимый API (MLX server, vLLM, llama.cpp с openai-mode).
+        // Поддерживает только подмножество параметров — repeat_penalty/top_k тут не пробрасываем.
+        var g = props.getGeneration();
         Map<String, Object> body = new LinkedHashMap<>();
         body.put("model", modelName);
         body.put("messages", messages.stream().map(m -> Map.of("role", m.role(), "content", m.content())).toList());
         body.put("stream", true);
-        body.put("temperature", props.getGeneration().getTemperature());
-        body.put("top_p", props.getGeneration().getTopP());
-        body.put("max_tokens", props.getGeneration().getMaxTokens());
+        body.put("temperature", g.getTemperature());
+        body.put("top_p", g.getTopP());
+        body.put("max_tokens", g.getMaxTokens());
+        if (g.getPresencePenalty() != 0) body.put("presence_penalty", g.getPresencePenalty());
+        if (g.getFrequencyPenalty() != 0) body.put("frequency_penalty", g.getFrequencyPenalty());
+        if (g.getStop() != null && !g.getStop().isEmpty()) body.put("stop", g.getStop());
 
         return client.post()
                 .uri("/v1/chat/completions")

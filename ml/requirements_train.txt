@@ -1,0 +1,29 @@
+# KazGPT V3 — Training requirements (RTX 3070 Ti, 8GB VRAM)
+# Установка:
+#   1. PyTorch с CUDA 12.1 ставится отдельно (см. ниже)
+#   2. pip install -r requirements_train.txt
+
+# PyTorch (ставится первым отдельной командой, не через requirements):
+#   pip install torch==2.5.1 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
+# Core training stack
+transformers>=4.46.0,<5.0   # Qwen2.5 поддержка
+peft>=0.13.0                # LoRA
+accelerate>=1.0.0
+trl>=0.12.0                 # SFTTrainer
+datasets>=3.0.0
+bitsandbytes>=0.44.0        # 4-bit quantization (имеет Windows wheels)
+sentencepiece>=0.2.0
+tensorboard>=2.18.0
+
+# HF Hub
+huggingface_hub>=0.26.0
+
+# Опционально: unsloth для 2× ускорения (Windows: предкомпилированные wheels от unslothai)
+# pip install "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git"
+# или для Windows:
+# pip install unsloth --extra-index-url https://huggingface.github.io/accelerate/
+
+# Utilities
+einops>=0.8.0
+protobuf>=4.25

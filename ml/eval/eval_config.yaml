@@ -1,0 +1,51 @@
+# KazGPT Eval Harness — конфиг по умолчанию
+# Можно переопределять через CLI флаги run_eval.py.
+
+backend:
+  url: http://localhost:8080/api/chat/stream
+  timeout_sec: 90
+
+models:
+  # Все модели, которые проверяем. Каждое имя должно совпадать с ключом в application.yml (base, v2, kazgpt).
+  - base
+  # - v2          # раскомментировать когда MLX server запущен
+  # - kazgpt      # раскомментировать после fuse + Ollama create
+
+dataset:
+  golden_set: ./golden_set.jsonl
+  reports_dir: ./reports
+  # Фильтры по умолчанию (пусто — все):
+  domain_filter: ""
+  tag_filter: ""
+  limit: 0  # 0 = все
+
+metrics:
+  # Какие метрики включить. Тяжёлые (BERTScore, LLM-judge) по умолчанию выключены.
+  enable_bleu: true
+  enable_rouge: true
+  enable_bertscore: false        # требует пакет bert_score + ~250MB модель
+  enable_loop_detection: true
+  enable_kz_purity: true
+  enable_latency: true
+
+  loop_detection:
+    ngram_size: 4          # «окно» из 4 слов
+    repeat_threshold: 3    # если 4-грамма повторяется >3 раз — это loop
+
+  llm_judge:
+    enabled: false              # требует API key + стоит денег
+    provider: openai            # openai | anthropic
+    model: gpt-4o-mini          # дешевле gpt-4, для KZ норм
+    # При enabled=true проверьте, что вы заполнили JUDGE_PROMPT в metrics/llm_judge.py
+
+# Целевые значения для KazGPT V3 (production):
+# Используются как ссылка, не для автопровала.
+targets:
+  bleu_avg: 15.0
+  rouge_l_avg: 0.30
+  bertscore_avg: 0.75
+  judge_avg: 4.0
+  loop_pct_max: 5.0
+  kz_purity_min: 0.90
+  assertions_pct_min: 80.0
+  ttft_p50_ms_max: 1500

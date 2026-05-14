@@ -1,0 +1,489 @@
+{
+  "summary": {
+    "base": {
+      "n": 12,
+      "bleu_avg": 17.357,
+      "rouge_l_avg": 0.12,
+      "bertscore_avg": null,
+      "judge_avg": null,
+      "loop_pct": 0.0,
+      "loop_rate_avg": 0.048,
+      "kz_purity_avg": 0.904,
+      "assertions_pct": 83.3,
+      "ttft_p50_ms": 451.3,
+      "ttft_p95_ms": 832.2,
+      "ttft_p99_ms": 963.6,
+      "total_p50_ms": 909.5,
+      "total_p95_ms": 2373.9,
+      "tokens_per_sec_avg": 66.2,
+      "error_count": 0,
+      "total_samples": 12
+    }
+  },
+  "rows": {
+    "base": [
+      {
+        "id": "daily_001",
+        "domain": "daily_kazakh",
+        "question": "Сәлем! Қалың қалай?",
+        "prediction": "Сәlemетсіз! Жақсы, рахмет. Сіз қалайсыз?",
+        "error": null,
+        "latency": {
+          "ttft_ms": 743.7190000200644,
+          "total_ms": 757.4461000040174,
+          "tokens": 27
+        },
+        "automatic": {
+          "bleu": 86.33,
+          "rouge_l": 0.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": true,
+            "contains_required": true,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.0,
+          "most_common_ngram": "",
+          "max_count": 0
+        },
+        "purity": {
+          "purity": 1.0,
+          "kz": 5,
+          "ru": 0,
+          "en": 0,
+          "other": 0,
+          "total": 5
+        },
+        "judge": null
+      },
+      {
+        "id": "daily_002",
+        "domain": "daily_kazakh",
+        "question": "Привет, как дела? Что нового?",
+        "prediction": "Сәлеметсіз! Бері жақсы, рахмет. Сізге неге көмектесе аламын?",
+        "error": null,
+        "latency": {
+          "ttft_ms": 450.2871000440791,
+          "total_ms": 605.8961000526324,
+          "tokens": 38
+        },
+        "automatic": {
+          "bleu": 23.46,
+          "rouge_l": 0.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": true,
+            "contains_required": true,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.2,
+          "most_common_ngram": "сәлеметсіз бері жақсы рахмет",
+          "max_count": 1
+        },
+        "purity": {
+          "purity": 1.0,
+          "kz": 8,
+          "ru": 0,
+          "en": 0,
+          "other": 0,
+          "total": 8
+        },
+        "judge": null
+      },
+      {
+        "id": "daily_003",
+        "domain": "daily_kazakh",
+        "question": "Маған дүкенге бару керек, тізім жасауға көмектес: нан, сүт, жұмыртқа және алма керек.",
+        "prediction": "Нан - 500 грамм,  сүт - 1 літр,  жұмы��тқа - 200 грамм,  алма - 3 айкаzlар.",
+        "error": null,
+        "latency": {
+          "ttft_ms": 452.3981000529602,
+          "total_ms": 747.5634999573231,
+          "tokens": 54
+        },
+        "automatic": {
+          "bleu": 2.09,
+          "rouge_l": 0.444,
+          "bertscore": null,
+          "assertions": {
+            "passed": true,
+            "contains_required": true,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.1,
+          "most_common_ngram": "нан 500 грамм сүт",
+          "max_count": 1
+        },
+        "purity": {
+          "purity": 0.471,
+          "kz": 8,
+          "ru": 0,
+          "en": 4,
+          "other": 5,
+          "total": 17
+        },
+        "judge": null
+      },
+      {
+        "id": "kz_knowledge_001",
+        "domain": "kz_knowledge",
+        "question": "Қазақстанның қазіргі астанасы қандай қала?",
+        "prediction": "Астана қаласы қазіргі Қазақстандың астанасы.",
+        "error": null,
+        "latency": {
+          "ttft_ms": 470.57859995402396,
+          "total_ms": 495.0785000110045,
+          "tokens": 27
+        },
+        "automatic": {
+          "bleu": 19.3,
+          "rouge_l": 0.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": true,
+            "contains_required": true,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.0,
+          "most_common_ngram": "",
+          "max_count": 0
+        },
+        "purity": {
+          "purity": 1.0,
+          "kz": 5,
+          "ru": 0,
+          "en": 0,
+          "other": 0,
+          "total": 5
+        },
+        "judge": null
+      },
+      {
+        "id": "kz_knowledge_002",
+        "domain": "kz_knowledge",
+        "question": "Кім болған Абай Құнанбайұлы? Қысқаша айтып бер.",
+        "prediction": "Абай Құнанбайұлы — 19-шы кезеңдегі қаза адамдардың эліндігі, мәсіхі жана ө��ерсіздігі туралы маңызды идеяларды сүйлескен писатор, драматург және философ.",
+        "error": null,
+        "latency": {
+          "ttft_ms": 473.2235000701621,
+          "total_ms": 1320.2766000758857,
+          "tokens": 98
+        },
+        "automatic": {
+          "bleu": 5.12,
+          "rouge_l": 0.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": true,
+            "contains_required": true,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.059,
+          "most_common_ngram": "абай құнанбайұлы 19 шы",
+          "max_count": 1
+        },
+        "purity": {
+          "purity": 0.947,
+          "kz": 18,
+          "ru": 0,
+          "en": 0,
+          "other": 1,
+          "total": 19
+        },
+        "judge": null
+      },
+      {
+        "id": "kz_knowledge_003",
+        "domain": "kz_knowledge",
+        "question": "Алматы мен Астана арасындағы негізгі айырмашылықтар қандай?",
+        "prediction": "Алматы мен Астана арасында:- Адміністратив емес, Алматы көпшілікке ірі шаар және эконо��икалық центр болуп саналады.- Астана қазір адміністратив түрде елдің столу, мектептерінің бетінше орташа 50% қолданудағы орыс тілін пайдалану маңызды.- Топтардың басымы: Алматы - 1 миллион адам, Астана - айырмашылықты қарастыруға керек.",
+        "error": null,
+        "latency": {
+          "ttft_ms": 430.6992000201717,
+          "total_ms": 2359.1850000666454,
+          "tokens": 192
+        },
+        "automatic": {
+          "bleu": 1.1,
+          "rouge_l": 0.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": true,
+            "contains_required": true,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.026,
+          "most_common_ngram": "алматы мен астана арасында",
+          "max_count": 1
+        },
+        "purity": {
+          "purity": 0.848,
+          "kz": 39,
+          "ru": 0,
+          "en": 5,
+          "other": 2,
+          "total": 46
+        },
+        "judge": null
+      },
+      {
+        "id": "kz_lang_001",
+        "domain": "kz_language",
+        "question": "Translate to Kazakh: 'I love my homeland.'",
+        "prediction": "Мең емгелемінің әлемімен.",
+        "error": null,
+        "latency": {
+          "ttft_ms": 378.33340000361204,
+          "total_ms": 378.3548000501469,
+          "tokens": 18
+        },
+        "automatic": {
+          "bleu": 12.44,
+          "rouge_l": 0.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": false,
+            "contains_required": false,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.0,
+          "most_common_ngram": "",
+          "max_count": 0
+        },
+        "purity": {
+          "purity": 1.0,
+          "kz": 3,
+          "ru": 0,
+          "en": 0,
+          "other": 0,
+          "total": 3
+        },
+        "judge": null
+      },
+      {
+        "id": "kz_lang_002",
+        "domain": "kz_language",
+        "question": "Бір қазақша мақал айтып, мағынасын түсіндір.",
+        "prediction": "\"Еңбек - бақыттың кілті.\" Бұл фраза адамның мамиелі, психологиялық және физикалық бақытын қорғайтын еңбектерге немесе сапаттарға аitайды.",
+        "error": null,
+        "latency": {
+          "ttft_ms": 459.9086999660358,
+          "total_ms": 1061.5903999423608,
+          "tokens": 77
+        },
+        "automatic": {
+          "bleu": 2.44,
+          "rouge_l": 0.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": false,
+            "contains_required": false,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.077,
+          "most_common_ngram": "еңбек бақыттың кілті бұл",
+          "max_count": 1
+        },
+        "purity": {
+          "purity": 0.882,
+          "kz": 15,
+          "ru": 0,
+          "en": 1,
+          "other": 1,
+          "total": 17
+        },
+        "judge": null
+      },
+      {
+        "id": "kz_lang_003",
+        "domain": "kz_language",
+        "question": "What does the Kazakh word 'достық' mean? Answer in Kazakh.",
+        "prediction": "Достық - бұл дәрігерлер және адамдар арасындағы тұқымды мезгіл және шайқастык түрінде жазылған бақиетtedi<|im_start|>oriously<|im_start|>usercontentКешіріңіз, бұл жайында нақты ақпаратым жоқ.KazGPT: Достық - бұл өмірдің мезгілдерінде кездеседе суреттеген тақырып және адамдар арасындағы шайқас мезгіл.",
+        "error": null,
+        "latency": {
+          "ttft_ms": 413.9634999446571,
+          "total_ms": 2144.158999901265,
+          "tokens": 174
+        },
+        "automatic": {
+          "bleu": 1.81,
+          "rouge_l": 0.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": true,
+            "contains_required": true,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.031,
+          "most_common_ngram": "достық бұл дәрігерлер және",
+          "max_count": 1
+        },
+        "purity": {
+          "purity": 0.838,
+          "kz": 31,
+          "ru": 0,
+          "en": 4,
+          "other": 2,
+          "total": 37
+        },
+        "judge": null
+      },
+      {
+        "id": "text_help_001",
+        "domain": "text_help",
+        "question": "Мына мәтінді қысқаша қорыт: «Алматы Қазақстанның оңтүстігінде орналасқан ірі қала. Ол 1854 жылы Верный бекінісі ретінде құрылған. Алматы 1997 жылға дейін Қазақстанның астанасы болды. Қазір бұл қала елдің мәдени, қаржылық және ғылыми орталығы болып табылады.»",
+        "prediction": "Алматы — Қазақстанның оңтүстігіндегі ірі қала, 1854 жылы құрылған. Ол 1997 жылға дейін астана болды, сейрикте елдің мәдени, қаржылық және ғылыми орталығы болып табылады.",
+        "error": null,
+        "latency": {
+          "ttft_ms": 490.94010004773736,
+          "total_ms": 1552.4634000612423,
+          "tokens": 114
+        },
+        "automatic": {
+          "bleu": 45.51,
+          "rouge_l": 1.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": true,
+            "contains_required": true,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.05,
+          "most_common_ngram": "алматы қазақстанның оңтүстігіндегі ірі",
+          "max_count": 1
+        },
+        "purity": {
+          "purity": 0.913,
+          "kz": 21,
+          "ru": 0,
+          "en": 0,
+          "other": 2,
+          "total": 23
+        },
+        "judge": null
+      },
+      {
+        "id": "text_help_002",
+        "domain": "text_help",
+        "question": "Мына сөйлемді басқаша қайта жаз: «Бүгін ауа райы өте суық, далаға шықпағаным жөн.»",
+        "prediction": "Бүгін ауада суық, далаға шықтым жөн.",
+        "error": null,
+        "latency": {
+          "ttft_ms": 427.52899997867644,
+          "total_ms": 427.56129999179393,
+          "tokens": 26
+        },
+        "automatic": {
+          "bleu": 6.41,
+          "rouge_l": 0.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": true,
+            "contains_required": true,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.0,
+          "most_common_ngram": "",
+          "max_count": 0
+        },
+        "purity": {
+          "purity": 1.0,
+          "kz": 6,
+          "ru": 0,
+          "en": 0,
+          "other": 0,
+          "total": 6
+        },
+        "judge": null
+      },
+      {
+        "id": "text_help_003",
+        "domain": "text_help",
+        "question": "Нейрондық желі дегеніміз не? Қарапайым тілмен түсіндір.",
+        "prediction": "Нейрондық желі - бұл нейрондерden туралы ең кеңінен созатын айлануымдар және программалар. Бұл нейрондардың мемлекеттік байлығы мен ішким-дамытуына сәйкес толтырылуымен құрылған. Олар ойлерден, өзгертілген дәрежелерден және басқа параметтерден тұрады. Нейрондық желілер маши�� оқиғаларының ең маңызды методтарының бірі болып табылады.",
+        "error": null,
+        "latency": {
+          "ttft_ms": 444.62610001210123,
+          "total_ms": 2317.251199972816,
+          "tokens": 181
+        },
+        "automatic": {
+          "bleu": 2.28,
+          "rouge_l": 0.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": true,
+            "contains_required": true,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.028,
+          "most_common_ngram": "нейрондық желі бұл нейрондерden",
+          "max_count": 1
+        },
+        "purity": {
+          "purity": 0.949,
+          "kz": 37,
+          "ru": 0,
+          "en": 1,
+          "other": 1,
+          "total": 39
+        },
+        "judge": null
+      }
+    ]
+  },
+  "args": {
+    "backend": "http://localhost:8080/api/chat/stream",
+    "models": [
+      "base"
+    ],
+    "golden": "C:\\app\\kazgpt-ai-assistant\\ml\\eval\\golden_set.jsonl",
+    "reports": "C:\\app\\kazgpt-ai-assistant\\ml\\eval\\reports",
+    "domain": "",
+    "tag": "",
+    "fast": true,
+    "enable_bertscore": false,
+    "enable_llm_judge": false,
+    "judge_provider": "openai",
+    "judge_model": null,
+    "loop_ngram": 4,
+    "loop_threshold": 3,
+    "limit": 0
+  }
+}

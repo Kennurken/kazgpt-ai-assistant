@@ -1,0 +1,156 @@
+{
+  "summary": {
+    "base": {
+      "n": 3,
+      "bleu_avg": 4.057,
+      "rouge_l_avg": 0.0,
+      "bertscore_avg": null,
+      "judge_avg": null,
+      "loop_pct": 0.0,
+      "loop_rate_avg": 0.051,
+      "kz_purity_avg": 0.93,
+      "assertions_pct": 33.3,
+      "ttft_p50_ms": 3467.6,
+      "ttft_p95_ms": 8130.3,
+      "ttft_p99_ms": 8544.8,
+      "total_p50_ms": 4016.2,
+      "total_p95_ms": 7757.5,
+      "tokens_per_sec_avg": 32.3,
+      "error_count": 0,
+      "total_samples": 3
+    }
+  },
+  "rows": {
+    "base": [
+      {
+        "id": "daily_001",
+        "domain": "daily_kazakh",
+        "question": "Сәлем! Қалың қалай?",
+        "prediction": "Сәlem! Мен сизге көмек етуде рахмет алумен мүшіндеу менед. Сіз қандай пайдаланушыс, қоғамдың тақырыбы немесе мақсаты бар?",
+        "error": null,
+        "latency": {
+          "ttft_ms": 3467.6479999907315,
+          "total_ms": 4016.2096000276506,
+          "tokens": 72
+        },
+        "automatic": {
+          "bleu": 4.78,
+          "rouge_l": 0.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": false,
+            "contains_required": false,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.071,
+          "most_common_ngram": "сәlem мен сизге көмек",
+          "max_count": 1
+        },
+        "purity": {
+          "purity": 1.0,
+          "kz": 17,
+          "ru": 0,
+          "en": 0,
+          "other": 0,
+          "total": 17
+        },
+        "judge": null
+      },
+      {
+        "id": "daily_002",
+        "domain": "daily_kazakh",
+        "question": "Привет, как дела? Что нового?",
+        "prediction": "Сәлэми! Рекең кезектелемен. Сizде неге сур��лым?",
+        "error": null,
+        "latency": {
+          "ttft_ms": 6058.021399891004,
+          "total_ms": 6094.717299914919,
+          "tokens": 28
+        },
+        "automatic": {
+          "bleu": 5.61,
+          "rouge_l": 0.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": false,
+            "contains_required": false,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.0,
+          "most_common_ngram": "",
+          "max_count": 0
+        },
+        "purity": {
+          "purity": 0.857,
+          "kz": 6,
+          "ru": 0,
+          "en": 0,
+          "other": 1,
+          "total": 7
+        },
+        "judge": null
+      },
+      {
+        "id": "daily_003",
+        "domain": "daily_kazakh",
+        "question": "Маған дүкенге бару керек, тізім жасауға көмектес: нан, сүт, жұмыртқа және алма керек.",
+        "prediction": "Нандың, сүтін, жұмыртқаны және альмағ�� тиіsmен қосумен бастаймыз! Сізге не деген нәтижеде көмек ету мүмкін?",
+        "error": null,
+        "latency": {
+          "ttft_ms": 431.8627000320703,
+          "total_ms": 941.4893999928609,
+          "tokens": 70
+        },
+        "automatic": {
+          "bleu": 1.78,
+          "rouge_l": 0.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": true,
+            "contains_required": true,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.083,
+          "most_common_ngram": "нандың сүтін жұмыртқаны және",
+          "max_count": 1
+        },
+        "purity": {
+          "purity": 0.933,
+          "kz": 14,
+          "ru": 1,
+          "en": 0,
+          "other": 0,
+          "total": 15
+        },
+        "judge": null
+      }
+    ]
+  },
+  "args": {
+    "backend": "http://localhost:8080/api/chat/stream",
+    "models": [
+      "base"
+    ],
+    "golden": "C:\\app\\kazgpt-ai-assistant\\ml\\eval\\golden_set.jsonl",
+    "reports": "C:\\app\\kazgpt-ai-assistant\\ml\\eval\\reports",
+    "domain": "",
+    "tag": "",
+    "fast": true,
+    "enable_bertscore": false,
+    "enable_llm_judge": false,
+    "judge_provider": "openai",
+    "judge_model": null,
+    "loop_ngram": 4,
+    "loop_threshold": 3,
+    "limit": 3
+  }
+}

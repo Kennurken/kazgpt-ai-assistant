@@ -1,0 +1,489 @@
+{
+  "summary": {
+    "base": {
+      "n": 12,
+      "bleu_avg": 3.9,
+      "rouge_l_avg": 0.012,
+      "bertscore_avg": null,
+      "judge_avg": null,
+      "loop_pct": 0.0,
+      "loop_rate_avg": 0.05,
+      "kz_purity_avg": 0.726,
+      "assertions_pct": 41.7,
+      "ttft_p50_ms": 435.0,
+      "ttft_p95_ms": 9251.1,
+      "ttft_p99_ms": 12619.4,
+      "total_p50_ms": 1286.6,
+      "total_p95_ms": 8555.6,
+      "tokens_per_sec_avg": 65.9,
+      "error_count": 0,
+      "total_samples": 12
+    }
+  },
+  "rows": {
+    "base": [
+      {
+        "id": "daily_001",
+        "domain": "daily_kazakh",
+        "question": "Сәлем! Қалың қалай?",
+        "prediction": "Сәlemetsez! Жашбыздар, рахмет. Сизге патердене бо��ғандым؟ 🌞",
+        "error": null,
+        "latency": {
+          "ttft_ms": 6984.087499906309,
+          "total_ms": 7079.185599926859,
+          "tokens": 30
+        },
+        "automatic": {
+          "bleu": 16.78,
+          "rouge_l": 0.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": false,
+            "contains_required": false,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.0,
+          "most_common_ngram": "",
+          "max_count": 0
+        },
+        "purity": {
+          "purity": 1.0,
+          "kz": 7,
+          "ru": 0,
+          "en": 0,
+          "other": 0,
+          "total": 7
+        },
+        "judge": null
+      },
+      {
+        "id": "daily_002",
+        "domain": "daily_kazakh",
+        "question": "Привет, как дела? Что нового?",
+        "prediction": "Сәлеметсиз! ЖоғарЫokie нарыктаймындагan нОвый мейдитермдер болды. Сizге рахмет за сұрағандарым!",
+        "error": null,
+        "latency": {
+          "ttft_ms": 458.394700079225,
+          "total_ms": 753.763800021261,
+          "tokens": 50
+        },
+        "automatic": {
+          "bleu": 4.07,
+          "rouge_l": 0.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": true,
+            "contains_required": true,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.143,
+          "most_common_ngram": "сәлеметсиз жоғарыokie нарыктаймындагan новый",
+          "max_count": 1
+        },
+        "purity": {
+          "purity": 0.8,
+          "kz": 8,
+          "ru": 0,
+          "en": 0,
+          "other": 2,
+          "total": 10
+        },
+        "judge": null
+      },
+      {
+        "id": "daily_003",
+        "domain": "daily_kazakh",
+        "question": "Маған дүкенге бару керек, тізім жасауға көмектес: нан, сүт, жұмыртқа және алма керек.",
+        "prediction": "Нان - +  Сүt - +  Жұmyrkà - +  Аlmá - +Табиа��ты! Дейе болса да, маусыммен зерттеудеге мемелдердi пайдалана отта. Алматтан шамагондарды же ішке-жетиштерден сулу етугедe рахмет барадим!",
+        "error": null,
+        "latency": {
+          "ttft_ms": 476.53109999373555,
+          "total_ms": 1264.4911999814212,
+          "tokens": 94
+        },
+        "automatic": {
+          "bleu": 1.48,
+          "rouge_l": 0.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": true,
+            "contains_required": true,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.05,
+          "most_common_ngram": "нان сүt жұmyrkà аlmá",
+          "max_count": 1
+        },
+        "purity": {
+          "purity": 0.615,
+          "kz": 16,
+          "ru": 2,
+          "en": 4,
+          "other": 4,
+          "total": 26
+        },
+        "judge": null
+      },
+      {
+        "id": "kz_knowledge_001",
+        "domain": "kz_knowledge",
+        "question": "Қазақстанның қазіргі астанасы қандай қала?",
+        "prediction": "АстыНА — Және неге миgambar! Натыйжаге сою зертханағым дарikes болмакtedi. Осы темадa нақты іформациямы рахмет келедi. Бұл марапта да мерси! 🌟💡",
+        "error": null,
+        "latency": {
+          "ttft_ms": 449.78649995755404,
+          "total_ms": 1015.8494999632239,
+          "tokens": 69
+        },
+        "automatic": {
+          "bleu": 1.79,
+          "rouge_l": 0.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": false,
+            "contains_required": false,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.062,
+          "most_common_ngram": "астына және неге миgambar",
+          "max_count": 1
+        },
+        "purity": {
+          "purity": 0.684,
+          "kz": 13,
+          "ru": 1,
+          "en": 0,
+          "other": 5,
+          "total": 19
+        },
+        "judge": null
+      },
+      {
+        "id": "kz_knowledge_002",
+        "domain": "kz_knowledge",
+        "question": "Кім болған Абай Құнанбайұлы? Қысқаша айтып бер.",
+        "prediction": "Абай Ырыспатов (Ісыбаев) Ханалинович Куnanbaev (\"Abay Qunanbayuli\") - ітифагымды белгiлеулеге келген адам дәreseсi, казактар мемлектердe \"Муный\" деп да зиянеттермен алмастыруланган элинин улуғшардарының birи. Оның екеу маанилерден писатель сызыбы мен фольклорист реттеледi; Ал Казахstan'дин негизги гуманджy��ы катары табигая тура шешимдерden камтап отады. Маселе-эмес жалпысындa Abai Kazak filologu жана literatürü dükү суроого чейин де мысал болуп стереотиптеуден бастайды.",
+        "error": null,
+        "latency": {
+          "ttft_ms": 442.9115999955684,
+          "total_ms": 2726.08020005282,
+          "tokens": 216
+        },
+        "automatic": {
+          "bleu": 0.82,
+          "rouge_l": 0.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": false,
+            "contains_required": false,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.018,
+          "most_common_ngram": "абай ырыспатов ісыбаев ханалинович",
+          "max_count": 1
+        },
+        "purity": {
+          "purity": 0.667,
+          "kz": 38,
+          "ru": 3,
+          "en": 6,
+          "other": 10,
+          "total": 57
+        },
+        "judge": null
+      },
+      {
+        "id": "kz_knowledge_003",
+        "domain": "kz_knowledge",
+        "question": "Алматы мен Астана арасындағы негізгі айырмашылықтар қандай?",
+        "prediction": "Алматый и Алжана (Нурсултан) межеудерей:- **Кезектелгендiру**: Нұрыʃтыланат эле алмасты кездеседи.  - **Мәдени дамуясы** же ішке растымдылығ�� - Нұраймының адабияту сызылуыш емес.- **Өнер баражосу**, фармандарды пайдадо болуп шешеттерге тырысадан да маңзды зерттелбек сезимдерде белгилендiредi.Осылайша, туралы мындай себептермен неше деформацияlar уюладаган эк.",
+        "error": null,
+        "latency": {
+          "ttft_ms": 427.0433000056073,
+          "total_ms": 2193.83659993764,
+          "tokens": 175
+        },
+        "automatic": {
+          "bleu": 0.79,
+          "rouge_l": 0.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": true,
+            "contains_required": true,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.028,
+          "most_common_ngram": "алматый и алжана нурсултан",
+          "max_count": 1
+        },
+        "purity": {
+          "purity": 0.814,
+          "kz": 35,
+          "ru": 1,
+          "en": 4,
+          "other": 3,
+          "total": 43
+        },
+        "judge": null
+      },
+      {
+        "id": "kz_lang_001",
+        "domain": "kz_language",
+        "question": "Translate to Kazakh: 'I love my homeland.'",
+        "prediction": "Мемелейм дәune мираппайсыздарым.",
+        "error": null,
+        "latency": {
+          "ttft_ms": 369.2915999563411,
+          "total_ms": 369.3127000005916,
+          "tokens": 18
+        },
+        "automatic": {
+          "bleu": 12.44,
+          "rouge_l": 0.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": false,
+            "contains_required": false,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.0,
+          "most_common_ngram": "",
+          "max_count": 0
+        },
+        "purity": {
+          "purity": 1.0,
+          "kz": 3,
+          "ru": 0,
+          "en": 0,
+          "other": 0,
+          "total": 3
+        },
+        "judge": null
+      },
+      {
+        "id": "kz_lang_002",
+        "domain": "kz_language",
+        "question": "Бір қазақша мақал айтып, мағынасын түсіндір.",
+        "prediction": "\"Өмгелер - дәunerлердеге мезгерендеседи.\"Мей��инеттерге (өмгелер) натыйжагана да болашай алардың кездестудигин же дефекттенугеннен (mezgherendesedi). Эшбек-энерджетикалык энергияны пайдадо ету іздеп отта.",
+        "error": null,
+        "latency": {
+          "ttft_ms": 422.57430008612573,
+          "total_ms": 1308.7022000690922,
+          "tokens": 100
+        },
+        "automatic": {
+          "bleu": 1.69,
+          "rouge_l": 0.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": false,
+            "contains_required": false,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.056,
+          "most_common_ngram": "өмгелер дәunerлердеге мезгерендеседи мей",
+          "max_count": 1
+        },
+        "purity": {
+          "purity": 0.857,
+          "kz": 18,
+          "ru": 1,
+          "en": 2,
+          "other": 0,
+          "total": 21
+        },
+        "judge": null
+      },
+      {
+        "id": "kz_lang_003",
+        "domain": "kz_language",
+        "question": "What does the Kazakh word 'достық' mean? Answer in Kazakh.",
+        "prediction": "Достым дегенде - мезгелдерге нәтижеси болғандарды же белgiлерден тура эмektермен пайдаланаттармын; ал спектры>({было бы}/{не было бы}). Дұрас-таныш кимделей ��ттыныздарды да маанилеудеп тешиктедигемiz. دос팅ritcheyka4250683254729654729654729654729654729654729654729654729654729654729654729654 Kazakhstan'da \"дост\" айкаzlaryndan туралуу сызылуш жазбалдардан берилген: дост, dosttyk (багыт). Қажет емес деп сүрөңіз!",
+        "error": null,
+        "latency": {
+          "ttft_ms": 412.5887000700459,
+          "total_ms": 2860.781900002621,
+          "tokens": 229
+        },
+        "automatic": {
+          "bleu": 0.82,
+          "rouge_l": 0.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": false,
+            "contains_required": false,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.027,
+          "most_common_ngram": "достым дегенде мезгелдерге нәтижеси",
+          "max_count": 1
+        },
+        "purity": {
+          "purity": 0.744,
+          "kz": 29,
+          "ru": 2,
+          "en": 3,
+          "other": 5,
+          "total": 39
+        },
+        "judge": null
+      },
+      {
+        "id": "text_help_001",
+        "domain": "text_help",
+        "question": "Мына мәтінді қысқаша қорыт: «Алматы Қазақстанның оңтүстігінде орналасқан ірі қала. Ол 1854 жылы Верный бекінісі ретінде құрылған. Алматы 1997 жылға дейін Қазақстанның астанасы болды. Қазір бұл қала елдің мәдени, қаржылық және ғылыми орталығы болып табылады.»",
+        "prediction": "Алmaty - Qazaqstan oñtüstигindeki iri qala, Verney denismesi ге келгенde (1854) убайланган. Бул qalan danadandanyn aystanasi boldu (1997), анда elden madeni, karjlilik va fylimiy ortaglihy bilayten tabilgen.",
+        "error": null,
+        "latency": {
+          "ttft_ms": 506.7676999606192,
+          "total_ms": 1252.1629999391735,
+          "tokens": 89
+        },
+        "automatic": {
+          "bleu": 1.6,
+          "rouge_l": 0.148,
+          "bertscore": null,
+          "assertions": {
+            "passed": true,
+            "contains_required": true,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.043,
+          "most_common_ngram": "алmaty qazaqstan oñtüstигindeki iri",
+          "max_count": 1
+        },
+        "purity": {
+          "purity": 0.148,
+          "kz": 4,
+          "ru": 0,
+          "en": 18,
+          "other": 5,
+          "total": 27
+        },
+        "judge": null
+      },
+      {
+        "id": "text_help_002",
+        "domain": "text_help",
+        "question": "Мына сөйлемді басқаша қайта жаз: «Бүгін ауа райы өте суық, далаға шықпағаным жөн.»",
+        "prediction": "«Сеймен улумды болуп, алайдим да лаби келгенден вырып турумыň.»(Кесепtera)",
+        "error": null,
+        "latency": {
+          "ttft_ms": 424.2573000956327,
+          "total_ms": 588.716100086458,
+          "tokens": 38
+        },
+        "automatic": {
+          "bleu": 3.13,
+          "rouge_l": 0.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": false,
+            "contains_required": false,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.143,
+          "most_common_ngram": "сеймен улумды болуп алайдим",
+          "max_count": 1
+        },
+        "purity": {
+          "purity": 0.7,
+          "kz": 7,
+          "ru": 1,
+          "en": 0,
+          "other": 2,
+          "total": 10
+        },
+        "judge": null
+      },
+      {
+        "id": "text_help_003",
+        "domain": "text_help",
+        "question": "Нейрондық желі дегеніміз не? Қарапайым тілмен түсіндір.",
+        "prediction": "Неuronдик Желi - бул компьютерлерге нерв систематтарыныň мәселесине теғедеп, аларды пиримидагый кезектемелеуге болашакталтыруғa усынулат. Ошонdan жеринde машиналлыq интеллекттен феткету процесси белгилендiредi. Бұl технология сыраймыздan баразадампен емес адамдардың мысал-жекесттер мен зертбelerден колдонулулады.",
+        "error": null,
+        "latency": {
+          "ttft_ms": 390.91229997575283,
+          "total_ms": 1730.6019000243396,
+          "tokens": 135
+        },
+        "automatic": {
+          "bleu": 1.39,
+          "rouge_l": 0.0,
+          "bertscore": null,
+          "assertions": {
+            "passed": true,
+            "contains_required": true,
+            "forbidden_found": []
+          }
+        },
+        "loop": {
+          "is_loop": false,
+          "repetition_rate": 0.036,
+          "most_common_ngram": "неuronдик желi бул компьютерлерге",
+          "max_count": 1
+        },
+        "purity": {
+          "purity": 0.677,
+          "kz": 21,
+          "ru": 0,
+          "en": 1,
+          "other": 9,
+          "total": 31
+        },
+        "judge": null
+      }
+    ]
+  },
+  "args": {
+    "backend": "http://localhost:8080/api/chat/stream",
+    "models": [
+      "base"
+    ],
+    "golden": "C:\\app\\kazgpt-ai-assistant\\ml\\eval\\golden_set.jsonl",
+    "reports": "C:\\app\\kazgpt-ai-assistant\\ml\\eval\\reports",
+    "domain": "",
+    "tag": "",
+    "fast": true,
+    "enable_bertscore": false,
+    "enable_llm_judge": false,
+    "judge_provider": "openai",
+    "judge_model": null,
+    "loop_ngram": 4,
+    "loop_threshold": 3,
+    "limit": 0
+  }
+}
