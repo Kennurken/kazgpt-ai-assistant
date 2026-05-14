@@ -29,7 +29,7 @@ from pathlib import Path
 
 def parse_args():
     p = argparse.ArgumentParser()
-    p.add_argument("--base", default="issai/LLama-3.1-KazLLM-1.0-8B",
+    p.add_argument("--base", default="Qwen/Qwen2.5-7B-Instruct",
                    help="base модель (та же, что использовалась в train_cuda.py)")
     p.add_argument("--adapter", required=True, help="LoRA адаптер директория (adapters_v3/final)")
     p.add_argument("--output", default="./kazgpt-v3-merged", help="merged-модель (HF формат)")

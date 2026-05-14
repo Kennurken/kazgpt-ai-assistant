@@ -33,21 +33,31 @@ from pathlib import Path
 
 def parse_args():
     p = argparse.ArgumentParser(description="KazGPT V3 QLoRA training")
-    # Default: KazLLM-1.0-8B от ISSAI (Llama-3.1-8B уже fine-tuned на казахском корпусе).
-    # Альтернатива (если HF gating проблема): Qwen/Qwen2.5-7B-Instruct (slightly worse on KZ).
-    p.add_argument("--model", default="issai/LLama-3.1-KazLLM-1.0-8B",
-                   help="HF model id (default: KazLLM-8B от ISSAI; альтернатива: Qwen/Qwen2.5-7B-Instruct)")
+    # Default: Qwen2.5-7B-Instruct (public, без gating, отлично multilingual).
+    # Альтернативы:
+    #   - issai/LLama-3.1-KazLLM-1.0-8B (gated, нужен ISSAI approval) — лучший казахский baseline
+    #   - AmanMussa/llama2-kazakh-7b (public, Llama2 fine-tune) — устаревшая база
+    p.add_argument("--model", default="Qwen/Qwen2.5-7B-Instruct",
+                   help="HF model id (default: Qwen2.5-7B; для KazLLM-8B нужен ISSAI access)")
     p.add_argument("--data", default="./data", help="директория с train.jsonl + valid.jsonl")
     p.add_argument("--output", default="./adapters_v3", help="куда сохранять адаптеры")
-    p.add_argument("--epochs", type=float, default=3.0)
+    # Production defaults для val_loss 0.3-0.5 на 76k+ KZ instruction data:
+    p.add_argument("--epochs", type=float, default=2.0,
+                   help="2 epochs over 76k = ~10k steps = 10-13h on RTX 3070 Ti")
     p.add_argument("--batch-size", type=int, default=1)
-    p.add_argument("--grad-accum", type=int, default=16)
-    p.add_argument("--lr", type=float, default=2e-4)
-    p.add_argument("--max-seq", type=int, default=2048, help="2048 хватит для chat; 4096 на 8GB рискованно")
-    p.add_argument("--lora-rank", type=int, default=32)
-    p.add_argument("--lora-alpha", type=int, default=64)
+    p.add_argument("--grad-accum", type=int, default=16,
+                   help="effective batch 16, помещается в 8GB при QLoRA 7B")
+    p.add_argument("--lr", type=float, default=2e-4,
+                   help="cosine 2e-4 → 2e-6 over training")
+    p.add_argument("--max-seq", type=int, default=2048,
+                   help="2048 — sweet spot для chat + instruction (4096 рискованно на 8GB)")
+    p.add_argument("--lora-rank", type=int, default=64,
+                   help="r=64 для 76k данных (больше capacity = ниже loss)")
+    p.add_argument("--lora-alpha", type=int, default=128,
+                   help="alpha = 2× rank — best practice")
     p.add_argument("--lora-dropout", type=float, default=0.05)
-    p.add_argument("--warmup-ratio", type=float, default=0.03)
+    p.add_argument("--warmup-ratio", type=float, default=0.05,
+                   help="5% warmup для cosine — стабильный старт")
     p.add_argument("--weight-decay", type=float, default=0.01)
     p.add_argument("--use-unsloth", action="store_true", help="включить unsloth (2× ускорение, если установлен)")
     p.add_argument("--no-packing", action="store_true", help="отключить packing (debug)")

@@ -25,11 +25,24 @@ venv/
 
 # MLX / ML artifacts
 ml/adapters/
+ml/adapters_*/
+adapters_*/
 ml/data/*.jsonl
+ml/data_v3/
 ml/kazgpt-merged/
 ml/train.log
 ml/*.npz
 ml/*.safetensors
+
+# Large model downloads (15GB+ HF models)
+models/
+*.gguf
+*-merged/
+kazgpt-v*-merged/
+
+# Training run artifacts
+runs/
+wandb/
 
 # HuggingFace cache
 .cache/
