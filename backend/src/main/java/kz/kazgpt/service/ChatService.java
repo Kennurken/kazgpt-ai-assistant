@@ -19,11 +19,19 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.regex.Pattern;
 
 @Service
 public class ChatService {
 
     private static final Logger log = LoggerFactory.getLogger(ChatService.class);
+
+    // Кириллица{2+} + Латиница{2+} — признак английского суффикса на казахском корне.
+    // Например: "жасалуing", "болуed". Не задевает "AI-ді" (там Латиница стоит первой).
+    private static final Pattern KAZ_LATIN_SUFFIX =
+            Pattern.compile("[а-яА-ЯәіңғүұқөһӘІҢҒҮҰҚӨҺ]{2,}[a-zA-Z]{2,}");
 
     private final KazGptProperties props;
     private final CacheService cacheService;
@@ -56,9 +64,9 @@ public class ChatService {
         List<Message> messages = buildMessages(req);
 
         if ("mlx".equalsIgnoreCase(cfg.getRuntime())) {
-            return streamOpenAI(client, cfg.getName(), messages);
+            return withGrammarGuard(withLanguageGuard(streamOpenAI(client, cfg.getName(), messages)));
         }
-        return streamOllama(client, cfg.getName(), messages);
+        return withGrammarGuard(withLanguageGuard(streamOllama(client, cfg.getName(), messages)));
     }
 
     private Flux<String> streamFromCache(String answer) {
@@ -175,6 +183,71 @@ public class ChatService {
         } catch (Exception e) {
             return "";
         }
+    }
+
+    /**
+     * Мониторит стрим на предмет Кириллица+Латиница гибридов (English суффиксы на казахских словах).
+     * Логирует нарушения — помогает отслеживать качество грамматики без прерывания ответа.
+     */
+    private Flux<String> withGrammarGuard(Flux<String> upstream) {
+        StringBuilder buf = new StringBuilder();
+        AtomicBoolean logged = new AtomicBoolean(false);
+
+        return upstream.doOnNext(chunk -> {
+            if (logged.get()) return;
+            buf.append(chunk);
+            // Проверяем первые ~300 символов — суффиксные ошибки видны сразу
+            if (buf.length() > 80 && buf.length() < 350) {
+                var matcher = KAZ_LATIN_SUFFIX.matcher(buf);
+                if (matcher.find()) {
+                    log.warn("Grammar guard: English suffix in Kazakh text — '{}'", matcher.group());
+                    logged.set(true);
+                }
+            }
+        });
+    }
+
+    /**
+     * Блокирует CJK (китайский) и арабский скрипт в первых 200 символах стрима.
+     * Причины слётов: Qwen2.5 → китайский (primary training language);
+     * арабский → казахская диаспора Синьцзяна пишет казахско-арабским алфавитом,
+     * поэтому модель путает его с современным казахским (кириллица).
+     */
+    private Flux<String> withLanguageGuard(Flux<String> upstream) {
+        AtomicInteger seen = new AtomicInteger(0);
+        AtomicBoolean aborted = new AtomicBoolean(false);
+
+        return upstream.handle((chunk, sink) -> {
+            if (aborted.get()) return;
+
+            // Проверяем только начало ответа — скрипт определяется в первых ~150 символах
+            if (seen.get() < 200) {
+                String script = null;
+                for (int c : chunk.chars().toArray()) {
+                    if ((c >= 0x4E00 && c <= 0x9FFF) ||
+                        (c >= 0x3400 && c <= 0x4DBF) ||
+                        (c >= 0x3040 && c <= 0x30FF)) {   // CJK + Хирагана/Катакана
+                        script = "CJK"; break;
+                    }
+                    if ((c >= 0x0600 && c <= 0x06FF) ||
+                        (c >= 0x0750 && c <= 0x077F) ||
+                        (c >= 0xFB50 && c <= 0xFDFF) ||
+                        (c >= 0xFE70 && c <= 0xFEFF)) {   // Arabic + Presentation Forms
+                        script = "Arabic"; break;
+                    }
+                }
+                if (script != null) {
+                    aborted.set(true);
+                    log.warn("Language guard triggered — {} script detected at char {}, aborting stream", script, seen.get());
+                    sink.next("\nКешіріңіз, жауапта тілдік ауытқу анықталды. Сұрақты қайта жіберіңіз.");
+                    sink.complete();
+                    return;
+                }
+            }
+
+            seen.addAndGet(chunk.length());
+            sink.next(chunk);
+        });
     }
 
     private static String truncate(String s, int n) {

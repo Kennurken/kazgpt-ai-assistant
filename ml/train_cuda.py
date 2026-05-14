@@ -31,6 +31,21 @@ from pathlib import Path
 # --- Lazy imports (validate args first, don't waste time importing torch on bad args) ---
 
 
+def _patch_torch_load_for_resume():
+    """transformers 5.x требует weights_only=True для безопасности torch.load,
+    но наши собственные checkpoints содержат TrainerState / optimizer state,
+    которые требуют unsafe loading. Patch'им torch.load с weights_only=False
+    для resume from local checkpoint (мы доверяем своим файлам)."""
+    import torch
+    _orig_load = torch.load
+
+    def patched(*args, **kwargs):
+        kwargs["weights_only"] = False
+        return _orig_load(*args, **kwargs)
+
+    torch.load = patched
+
+
 def parse_args():
     p = argparse.ArgumentParser(description="KazGPT V3 QLoRA training")
     # Default: Qwen2.5-7B-Instruct (public, без gating, отлично multilingual).
@@ -143,6 +158,10 @@ def main():
     args = parse_args()
     has_bf16, vram_gb = check_env()
 
+    # Patch torch.load для resume (своим checkpoints доверяем)
+    if args.resume:
+        _patch_torch_load_for_resume()
+
     if vram_gb < 7:
         print(f"[WARN] Только {vram_gb:.1f}GB VRAM. Возможно OOM. Попробуй --lora-rank 16 --max-seq 1024.")
 
@@ -211,7 +230,14 @@ def main():
             bias="none",
             task_type="CAUSAL_LM",
         )
-        model = get_peft_model(model, peft_cfg)
+        # Если --resume указан и существует — загружаем существующий LoRA adapter (safetensors)
+        # вместо fresh peft_cfg. Это обходит torch.load security issue в transformers 5.x.
+        if args.resume and Path(args.resume).exists() and (Path(args.resume) / "adapter_model.safetensors").exists():
+            from peft import PeftModel
+            print(f"=> Loading existing LoRA adapter from {args.resume} (continue training)")
+            model = PeftModel.from_pretrained(model, args.resume, is_trainable=True)
+        else:
+            model = get_peft_model(model, peft_cfg)
         model.print_trainable_parameters()
 
     # ============================================================
@@ -270,7 +296,9 @@ def main():
     # 4. Обучение
     # ============================================================
     print("=> Starting training...")
-    trainer.train(resume_from_checkpoint=args.resume)
+    # Не передаём resume_from_checkpoint в trainer — LoRA уже загружен выше,
+    # optimizer state не нужен (fresh optimizer с low LR = gentle polishing).
+    trainer.train()
 
     # ============================================================
     # 5. Сохраняем финальный LoRA адаптер
