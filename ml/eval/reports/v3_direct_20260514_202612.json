@@ -1,0 +1,947 @@
+{
+  "summary": {
+    "n": 30,
+    "bleu_avg": 7.53,
+    "rouge_l_avg": 0.13,
+    "loop_pct": 3.3,
+    "loop_rate_avg": 0.046,
+    "kz_purity_avg": 0.89,
+    "assertions_pct": 63.3,
+    "time_avg_sec": 6.23
+  },
+  "rows": [
+    {
+      "id": "daily_001",
+      "domain": "daily_kazakh",
+      "question": "Сәлем! Қалың қалай?",
+      "response": "Қолданушы: Кешіріңіз, мен оған нақты ақпаратым жоқ.",
+      "auto": {
+        "bleu": 4.99,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": false,
+          "contains_required": false,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.0,
+        "most_common_ngram": "",
+        "max_count": 0
+      },
+      "purity": {
+        "purity": 1.0,
+        "kz": 7,
+        "ru": 0,
+        "en": 0,
+        "other": 0,
+        "total": 7
+      },
+      "time_sec": 2.25
+    },
+    {
+      "id": "daily_002",
+      "domain": "daily_kazakh",
+      "question": "Привет, как дела? Что нового?",
+      "response": "AI ретінде менде осы мағыналарға назар аударамын немесе мәселерден шабындармен толтырамын. Деген не істеуге болады?",
+      "auto": {
+        "bleu": 2.72,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": false,
+          "contains_required": false,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.083,
+        "most_common_ngram": "ai ретінде менде осы",
+        "max_count": 1
+      },
+      "purity": {
+        "purity": 0.867,
+        "kz": 13,
+        "ru": 1,
+        "en": 1,
+        "other": 0,
+        "total": 15
+      },
+      "time_sec": 3.5
+    },
+    {
+      "id": "daily_003",
+      "domain": "daily_kazakh",
+      "question": "Маған дүкенге бару керек, тізім жасауға көмектес: нан, сүт, жұмыртқа және алма керек.",
+      "response": "Нан, сүт, жұмыртқа және алма.",
+      "auto": {
+        "bleu": 1.08,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": true,
+          "contains_required": true,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.0,
+        "most_common_ngram": "",
+        "max_count": 0
+      },
+      "purity": {
+        "purity": 1.0,
+        "kz": 5,
+        "ru": 0,
+        "en": 0,
+        "other": 0,
+        "total": 5
+      },
+      "time_sec": 1.28
+    },
+    {
+      "id": "daily_004",
+      "domain": "daily_kazakh",
+      "question": "Бүгін кешкі асқа не пісіруге кеңес бересің?",
+      "response": "«Табиғатта қоршаған адамдармен саяхата іздегендей сезінемін».",
+      "auto": {
+        "bleu": 3.71,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": false,
+          "contains_required": false,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.0,
+        "most_common_ngram": "",
+        "max_count": 0
+      },
+      "purity": {
+        "purity": 1.0,
+        "kz": 6,
+        "ru": 0,
+        "en": 0,
+        "other": 0,
+        "total": 6
+      },
+      "time_sec": 1.99
+    },
+    {
+      "id": "daily_005",
+      "domain": "daily_kazakh",
+      "question": "I'm tired today, can you suggest a simple way to relax in Kazakh?",
+      "response": "«Табиғатта орындалуды жеңіске деген идеямызды».",
+      "auto": {
+        "bleu": 1.3,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": false,
+          "contains_required": false,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.0,
+        "most_common_ngram": "",
+        "max_count": 0
+      },
+      "purity": {
+        "purity": 1.0,
+        "kz": 5,
+        "ru": 0,
+        "en": 0,
+        "other": 0,
+        "total": 5
+      },
+      "time_sec": 1.64
+    },
+    {
+      "id": "daily_006",
+      "domain": "daily_kazakh",
+      "question": "Менің атым Айдар. Сен мені қалай қарсы аласың?",
+      "response": "Қателерден тыс, мен сіздің атаусыз қалай қарсы алуға мүмкіндігіме итермелеймін. Бірақ мен сіздің атыңызға немесе оның іргеге келгендей бастайды.",
+      "auto": {
+        "bleu": 2.27,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": false,
+          "contains_required": false,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.062,
+        "most_common_ngram": "қателерден тыс мен сіздің",
+        "max_count": 1
+      },
+      "purity": {
+        "purity": 1.0,
+        "kz": 19,
+        "ru": 0,
+        "en": 0,
+        "other": 0,
+        "total": 19
+      },
+      "time_sec": 5.12
+    },
+    {
+      "id": "kz_knowledge_001",
+      "domain": "kz_knowledge",
+      "question": "Қазақстанның қазіргі астанасы қандай қала?",
+      "response": "Қазақстанның қазіргі астанасы - Алматы.",
+      "auto": {
+        "bleu": 10.68,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": true,
+          "contains_required": true,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.0,
+        "most_common_ngram": "",
+        "max_count": 0
+      },
+      "purity": {
+        "purity": 0.8,
+        "kz": 4,
+        "ru": 0,
+        "en": 1,
+        "other": 0,
+        "total": 5
+      },
+      "time_sec": 1.41
+    },
+    {
+      "id": "kz_knowledge_002",
+      "domain": "kz_knowledge",
+      "question": "Кім болған Абай Құнанбайұлы? Қысқаша айтып бер.",
+      "response": "Абай Құнанбайұлы () – Қытай Республикасына қатыгедегі қаржы мен экономикалық мәселелерден шабысынан тыс қоршаған қараулармен қорған қызықтастықтың құрамын.",
+      "auto": {
+        "bleu": 8.1,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": false,
+          "contains_required": false,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.077,
+        "most_common_ngram": "абай құнанбайұлы қытай республикасына",
+        "max_count": 1
+      },
+      "purity": {
+        "purity": 1.0,
+        "kz": 16,
+        "ru": 0,
+        "en": 0,
+        "other": 0,
+        "total": 16
+      },
+      "time_sec": 5.29
+    },
+    {
+      "id": "kz_knowledge_003",
+      "domain": "kz_knowledge",
+      "question": "Алматы мен Астана арасындағы негізгі айырмашылықтар қандай?",
+      "response": "Алматы мен Астанадағы негізгі айырмашылықтар - олардың макронатыраланған жерлерінен туындайды. Алматы – Казахстантағы ең үлкен шығындармен жабылады және 50% қазақтықтан тыс қала. Екіншіден, Астана - Белгілі бір қаладағы ең маңызды қалада, ол 6 миллионнан аспанға дейін 8 миллионнан ашуға дейін жиі пайдалана алады. Ол сонымен қатар әдетте қ",
+      "auto": {
+        "bleu": 1.05,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": true,
+          "contains_required": true,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.024,
+        "most_common_ngram": "алматы мен астанадағы негізгі",
+        "max_count": 1
+      },
+      "purity": {
+        "purity": 0.894,
+        "kz": 42,
+        "ru": 0,
+        "en": 2,
+        "other": 3,
+        "total": 47
+      },
+      "time_sec": 11.88
+    },
+    {
+      "id": "kz_knowledge_004",
+      "domain": "kz_knowledge",
+      "question": "Қазақстанның мемлекеттік туы туралы айтып бер.",
+      "response": "Қазақстанның мемлекеттік туы - Батыс ғажайында орындалған 5000-ден астам қала мен қоршағанына дейінгі 687-ден астам қалаға дейінгі 9000-ден астам қалаға дейінгі 14 қаладағы қараңғылық.",
+      "auto": {
+        "bleu": 1.58,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": false,
+          "contains_required": false,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.087,
+        "most_common_ngram": "ден астам қалаға дейінгі",
+        "max_count": 2
+      },
+      "purity": {
+        "purity": 0.792,
+        "kz": 19,
+        "ru": 0,
+        "en": 1,
+        "other": 4,
+        "total": 24
+      },
+      "time_sec": 7.43
+    },
+    {
+      "id": "kz_knowledge_005",
+      "domain": "kz_knowledge",
+      "question": "Қазақ халқының дәстүрлі үйі қалай аталады?",
+      "response": "Қазақхана - қазақ мансабына жататын адамдарға орындалатын қала үйлерінің бірегей топтары. Бұл үйлерде әдетте қаржылық және экономикалық дағдарыс, сонымен қатар қоршағанын зерттеуге және денсаулық пен тынымды бақылауды жеңіске итермеледі. Келесі үйлерде әдетте қараулар мен қиындықтарды шешу үшін пайдаланылады, мысалы, қажырланбайды немесе қашықта",
+      "auto": {
+        "bleu": 1.95,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": false,
+          "contains_required": false,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.026,
+        "most_common_ngram": "қазақхана қазақ мансабына жататын",
+        "max_count": 1
+      },
+      "purity": {
+        "purity": 0.976,
+        "kz": 41,
+        "ru": 0,
+        "en": 1,
+        "other": 0,
+        "total": 42
+      },
+      "time_sec": 11.9
+    },
+    {
+      "id": "kz_knowledge_006",
+      "domain": "kz_knowledge",
+      "question": "Қазақстанның территориясы әлемде нешінші орында?",
+      "response": "Қазақстан ғарыштағы әлемден шамадан тыс 50 миллионнан аспанға дейінгі 6798 км² (262,240 миль) іздеді. Бұл қала әдетте Ұлыбаб-Батыс қаласына қарағанша қосылады, өйткені ол 1991 жылы Келісім-Шарттың қорғанында қойылған. Оның құрамында қатаң қалалар мен қалалар бар, сонымен қатар әскери жерлер мен құмарлықтары бар. Тер",
+      "auto": {
+        "bleu": 1.03,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": true,
+          "contains_required": true,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.023,
+        "most_common_ngram": "қазақстан ғарыштағы әлемден шамадан",
+        "max_count": 1
+      },
+      "purity": {
+        "purity": 0.864,
+        "kz": 38,
+        "ru": 0,
+        "en": 0,
+        "other": 6,
+        "total": 44
+      },
+      "time_sec": 11.82
+    },
+    {
+      "id": "kz_knowledge_007",
+      "domain": "kz_knowledge",
+      "question": "Наурыз мейрамы туралы қысқаша мәлімет бер.",
+      "response": "Наварин - қазақханаға орналасатын, қоршағаның негізгі элементтерімен толтыратын қала. Бұл қала 1950-ден 1980-танық қараңғылықтағы қалада, қажырауы 1976 жылы қабылданған. Наурыз мейрамы - бұл қаладағы ең маңызды мейрамханалардың бірі. Ол 1960-жылдарда қойылған және 1990-жылдарда қоялған, оның іші",
+      "auto": {
+        "bleu": 1.83,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": true,
+          "contains_required": true,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.029,
+        "most_common_ngram": "наварин қазақханаға орналасатын қоршағаның",
+        "max_count": 1
+      },
+      "purity": {
+        "purity": 0.833,
+        "kz": 30,
+        "ru": 0,
+        "en": 2,
+        "other": 4,
+        "total": 36
+      },
+      "time_sec": 11.82
+    },
+    {
+      "id": "kz_knowledge_008",
+      "domain": "kz_knowledge",
+      "question": "Байқоңыр ғарыш айлағы туралы не білесің?",
+      "response": "Қазақстан ғарышта 5000 ғарыштың орындалады.",
+      "auto": {
+        "bleu": 3.55,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": true,
+          "contains_required": true,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.0,
+        "most_common_ngram": "",
+        "max_count": 0
+      },
+      "purity": {
+        "purity": 0.8,
+        "kz": 4,
+        "ru": 0,
+        "en": 0,
+        "other": 1,
+        "total": 5
+      },
+      "time_sec": 1.74
+    },
+    {
+      "id": "kz_lang_001",
+      "domain": "kz_language",
+      "question": "Translate to Kazakh: 'I love my homeland.'",
+      "response": "«Мен өз отанымды сүйемін».",
+      "auto": {
+        "bleu": 12.7,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": true,
+          "contains_required": true,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.0,
+        "most_common_ngram": "",
+        "max_count": 0
+      },
+      "purity": {
+        "purity": 1.0,
+        "kz": 4,
+        "ru": 0,
+        "en": 0,
+        "other": 0,
+        "total": 4
+      },
+      "time_sec": 1.12
+    },
+    {
+      "id": "kz_lang_002",
+      "domain": "kz_language",
+      "question": "Бір қазақша мақал айтып, мағынасын түсіндір.",
+      "response": "«Табиғатта орындалған әскери шарлау - бұл махаббат пен бағалаудың негізгі элементтері».",
+      "auto": {
+        "bleu": 2.87,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": false,
+          "contains_required": false,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.143,
+        "most_common_ngram": "табиғатта орындалған әскери шарлау",
+        "max_count": 1
+      },
+      "purity": {
+        "purity": 0.909,
+        "kz": 10,
+        "ru": 0,
+        "en": 1,
+        "other": 0,
+        "total": 11
+      },
+      "time_sec": 2.83
+    },
+    {
+      "id": "kz_lang_003",
+      "domain": "kz_language",
+      "question": "What does the Kazakh word 'достық' mean? Answer in Kazakh.",
+      "response": "Достық - бұл адамдармен немесе оларға қатысты мақтанышты немесе махаббатты іздеп, қорғаны сипаттайтын негізгі термин. Бұл термин сонымен қатар қозғайды, қозғайды немесе қозғайды дос деп аталады. Достықтың маңызы адамдар мен оларға қатысты мақтанышты қажет ету деңгейінің жиілеулі белгілерін біледі. Олар қалаған жерден және қойылатын аумақтағы дағдарлық пен",
+      "auto": {
+        "bleu": 1.1,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": true,
+          "contains_required": true,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.023,
+        "most_common_ngram": "достық бұл адамдармен немесе",
+        "max_count": 1
+      },
+      "purity": {
+        "purity": 0.979,
+        "kz": 46,
+        "ru": 0,
+        "en": 1,
+        "other": 0,
+        "total": 47
+      },
+      "time_sec": 11.82
+    },
+    {
+      "id": "kz_lang_004",
+      "domain": "kz_language",
+      "question": "Переведи на казахский: «Я учусь в университете и хочу стать программистом.»",
+      "response": "«Барлығына қатысты, мен университетте орындадым және машиналық оқытумен жабысып отырмын».",
+      "auto": {
+        "bleu": 4.46,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": true,
+          "contains_required": true,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.143,
+        "most_common_ngram": "барлығына қатысты мен университетте",
+        "max_count": 1
+      },
+      "purity": {
+        "purity": 1.0,
+        "kz": 10,
+        "ru": 0,
+        "en": 0,
+        "other": 0,
+        "total": 10
+      },
+      "time_sec": 2.71
+    },
+    {
+      "id": "kz_lang_005",
+      "domain": "kz_language",
+      "question": "«Бар», «жоқ», «бар-жоқ» сөздерінің мағынасын түсіндір.",
+      "response": "Бар - бұл адамдар мен олардың мансабын немесе қажеттілігін белгілеуді жеңіске итермеледі. Бұл адамдармен немесе объектілерден шығарылуы мүмкін. Жоқ - бұл қателікті немесе негіздейтінше қиындықты жеңіске итермеледі. Бұл қателікті немесе негіздейтінше қиындықты жеңіске итермеледі. Бар-жоқ – бұл адамдар мен олардың мансабын немесе қажеттілігін",
+      "auto": {
+        "bleu": 2.43,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": true,
+          "contains_required": true,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.053,
+        "most_common_ngram": "бұл адамдар мен олардың",
+        "max_count": 2
+      },
+      "purity": {
+        "purity": 0.952,
+        "kz": 40,
+        "ru": 0,
+        "en": 2,
+        "other": 0,
+        "total": 42
+      },
+      "time_sec": 11.89
+    },
+    {
+      "id": "kz_lang_006",
+      "domain": "kz_language",
+      "question": "«Көп» және «көп болмаса да» сөз тіркестерінің айырмашылығы қандай?",
+      "response": "«Көп» және «көп болмаса да» - бұл әдетте еңбекке немесе махаббаттан тыс айтады, олар сонымен қатар өзгермелі болса да, өздігінен шығармаған негізден маңызды болуы мүмкін. Бастапқы қоршаған орындар мен достарға дейін, бұл адамның позициясын немесе қажеттілігін бағалауда маңызды. Екінші жағынан, «көп болмаса да» - бұл өзгермелі болса да",
+      "auto": {
+        "bleu": 1.77,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": true,
+          "contains_required": true,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.047,
+        "most_common_ngram": "көп болмаса да бұл",
+        "max_count": 2
+      },
+      "purity": {
+        "purity": 0.875,
+        "kz": 42,
+        "ru": 4,
+        "en": 2,
+        "other": 0,
+        "total": 48
+      },
+      "time_sec": 11.89
+    },
+    {
+      "id": "text_help_001",
+      "domain": "text_help",
+      "question": "Мына мәтінді қысқаша қорыт: «Алматы Қазақстанның оңтүстігінде орналасқан ірі қала. Ол 1854 жылы Верный бекінісі ретінде құрылған. Алматы 1997 жылға дейін Қазақстанның астанасы болды. Қазір бұл қала елдің мәдени, қаржылық және ғылыми орталығы болып табылады.»",
+      "response": "Алматы - Қазақстантағы оңтүстіктегі иерархияның бірінші элементтерінің бірі. Бұл 1854 жылы Верный бекінісі ретінде құрылған. Алматы 1997 жылға дейін Қазақстан астанасы болды. Қазіргі бойда ол елдің мәдени, қаржылық және ғылыми орталығы болып табылады.",
+      "auto": {
+        "bleu": 6.07,
+        "rouge_l": 1.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": true,
+          "contains_required": true,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.034,
+        "most_common_ngram": "алматы қазақстантағы оңтүстіктегі иерархияның",
+        "max_count": 1
+      },
+      "purity": {
+        "purity": 0.909,
+        "kz": 30,
+        "ru": 0,
+        "en": 1,
+        "other": 2,
+        "total": 33
+      },
+      "time_sec": 9.67
+    },
+    {
+      "id": "text_help_002",
+      "domain": "text_help",
+      "question": "Мына сөйлемді басқаша қайта жаз: «Бүгін ауа райы өте суық, далаға шықпағаным жөн.»",
+      "response": "Бүгін ауа райы өте суық, далаға шықпағаным жөн.",
+      "auto": {
+        "bleu": 10.55,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": true,
+          "contains_required": true,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.2,
+        "most_common_ngram": "бүгін ауа райы өте",
+        "max_count": 1
+      },
+      "purity": {
+        "purity": 1.0,
+        "kz": 8,
+        "ru": 0,
+        "en": 0,
+        "other": 0,
+        "total": 8
+      },
+      "time_sec": 2.08
+    },
+    {
+      "id": "text_help_003",
+      "domain": "text_help",
+      "question": "Нейрондық желі дегеніміз не? Қарапайым тілмен түсіндір.",
+      "response": "Neural Network - бұрынғы мәселерден шабындар мен нейрондарды пайдалана отырып, деректердің үлгілерін табудың қажеттілігін айтатын машиналық оқыту моделі. Бұл модельдер әдетте әрбір нейронға әрбір немесе бірге әрбір нейронға әрбір немесе бірге әрбір немесе бірге әрбір немесе бірге әрбір немесе бірге әрбір немесе бірге әрбір немес",
+      "auto": {
+        "bleu": 1.55,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": true,
+          "contains_required": true,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": true,
+        "repetition_rate": 0.146,
+        "most_common_ngram": "әрбір немесе бірге әрбір",
+        "max_count": 6
+      },
+      "purity": {
+        "purity": 0.933,
+        "kz": 42,
+        "ru": 0,
+        "en": 3,
+        "other": 0,
+        "total": 45
+      },
+      "time_sec": 11.96
+    },
+    {
+      "id": "text_help_004",
+      "domain": "text_help",
+      "question": "Мына тізімді мағынасы бойынша топта: «алма, кітап, апельсин, дәптер, банан, қалам, кесе, шай»",
+      "response": "Барлығы - макарондар.",
+      "auto": {
+        "bleu": 0.08,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": false,
+          "contains_required": false,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.0,
+        "most_common_ngram": "",
+        "max_count": 0
+      },
+      "purity": {
+        "purity": 0.667,
+        "kz": 2,
+        "ru": 0,
+        "en": 1,
+        "other": 0,
+        "total": 3
+      },
+      "time_sec": 0.8
+    },
+    {
+      "id": "text_help_005",
+      "domain": "text_help",
+      "question": "«Технология адамдарға қалай көмектеседі?» деген тақырыпта 3 сөйлем жаз.",
+      "response": "Технология - бұл адамдармен ойлауды жеңіске итермелейді. Бұл технологиялық жарыстағы мәселелер мен проблемаларға шешімдер қабылдауға көмектесті, мысалы, онлайн платформаларға, сонымен қатар мобильді телефондар мен компьютерлерден деректерді жинайды. Бұл технологияның негізгі мақсаты – адамдарға қоршаған және оларға қажетті қадамдар мен позитивті қалауларға қол жеткізеуге мүмкіндік береді. Технология",
+      "auto": {
+        "bleu": 3.33,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": true,
+          "contains_required": true,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.024,
+        "most_common_ngram": "технология бұл адамдармен ойлауды",
+        "max_count": 1
+      },
+      "purity": {
+        "purity": 0.978,
+        "kz": 44,
+        "ru": 0,
+        "en": 1,
+        "other": 0,
+        "total": 45
+      },
+      "time_sec": 12.09
+    },
+    {
+      "id": "text_help_006",
+      "domain": "text_help",
+      "question": "Маған бұл сөйлемді ағылшын тіліне аудар: «Қазақ халқының дәстүрлері өте бай.»",
+      "response": "«Қазақ халқының дәстүрлері өте бай».",
+      "auto": {
+        "bleu": 5.82,
+        "rouge_l": 0.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": false,
+          "contains_required": false,
+          "forbidden_found": [
+            "қазақ",
+            "дәстүр"
+          ]
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.0,
+        "most_common_ngram": "",
+        "max_count": 0
+      },
+      "purity": {
+        "purity": 1.0,
+        "kz": 5,
+        "ru": 0,
+        "en": 0,
+        "other": 0,
+        "total": 5
+      },
+      "time_sec": 1.59
+    },
+    {
+      "id": "stem_001",
+      "domain": "stem",
+      "question": "2 + 2 қанша болады? Қысқа жауап бер.",
+      "response": "2+2 = 4",
+      "auto": {
+        "bleu": 81.87,
+        "rouge_l": 1.0,
+        "bertscore": null,
+        "assertions": {
+          "passed": true,
+          "contains_required": true,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.0,
+        "most_common_ngram": "",
+        "max_count": 0
+      },
+      "purity": {
+        "purity": 0.0,
+        "kz": 0,
+        "ru": 0,
+        "en": 0,
+        "other": 3,
+        "total": 3
+      },
+      "time_sec": 0.46
+    },
+    {
+      "id": "stem_002",
+      "domain": "stem",
+      "question": "Python тілінде «Hello, Kazakhstan!» деп жазатын код жаз.",
+      "response": "Берілген мәселеге негізделген Python код:\n\n```python\nprint(\"Hello, Kazakhstan!\")\n```\n\nБұл код пайдаланушыға қажетті ақпаратты немесе мақалаға итермеледі. Бұл код қолданушыға қажетті ақпаратты немесе мақалаға итермеледі.",
+      "auto": {
+        "bleu": 37.57,
+        "rouge_l": 0.889,
+        "bertscore": null,
+        "assertions": {
+          "passed": true,
+          "contains_required": true,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.091,
+        "most_common_ngram": "қажетті ақпаратты немесе мақалаға",
+        "max_count": 2
+      },
+      "purity": {
+        "purity": 0.8,
+        "kz": 20,
+        "ru": 0,
+        "en": 5,
+        "other": 0,
+        "total": 25
+      },
+      "time_sec": 6.18
+    },
+    {
+      "id": "stem_003",
+      "domain": "stem",
+      "question": "Күн жүйесінде неше планета бар? Атап шық.",
+      "response": "Берілген мәліметтерден гөрі, Күн жүйесінде 8 планетадан тұратын Звездамен туған орбиталарына 500 миллиард пьеджаттан алынатын 976 миллион жабынша жиһаздардан тұрады. Бұл планеталар сонымен қатар зерттеудегі негізгі жинаулар мен теорияларға ие болып, қажетті дәлелдер мен бақыланбайды.",
+      "auto": {
+        "bleu": 4.18,
+        "rouge_l": 0.5,
+        "bertscore": null,
+        "assertions": {
+          "passed": true,
+          "contains_required": true,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.031,
+        "most_common_ngram": "берілген мәліметтерден гөрі күн",
+        "max_count": 1
+      },
+      "purity": {
+        "purity": 0.914,
+        "kz": 32,
+        "ru": 0,
+        "en": 0,
+        "other": 3,
+        "total": 35
+      },
+      "time_sec": 9.13
+    },
+    {
+      "id": "stem_004",
+      "domain": "stem",
+      "question": "Жасанды интеллект (AI) пен машиналық оқыту (ML) арасындағы айырмашылықты қысқа айт.",
+      "response": "Жасанды интеллект - бұл адамдармен суретке тура келген негізгі миғаралар мен идеяларды компьютерлерге белгілеуге және пайдалана отырып, оларға адамдармен суретке турады. Бұл технологияның мақсаты – компьютерлерге адамның эмоцияларына немесе мысалдарына назар аудара отыруға мүмкіндік беру. Машиналық оқыту, екіншіден, AI-ге қосылуға тырысады, онда компьютерлер деректерден модельдер мен шешімдер қабылдауға мүмкінд",
+      "auto": {
+        "bleu": 3.77,
+        "rouge_l": 0.5,
+        "bertscore": null,
+        "assertions": {
+          "passed": true,
+          "contains_required": true,
+          "forbidden_found": []
+        }
+      },
+      "loop": {
+        "is_loop": false,
+        "repetition_rate": 0.022,
+        "most_common_ngram": "жасанды интеллект бұл адамдармен",
+        "max_count": 1
+      },
+      "purity": {
+        "purity": 0.958,
+        "kz": 46,
+        "ru": 0,
+        "en": 1,
+        "other": 1,
+        "total": 48
+      },
+      "time_sec": 11.68
+    }
+  ]
+}

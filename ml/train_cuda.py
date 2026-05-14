@@ -109,17 +109,34 @@ def load_dataset(data_dir: Path):
     train = _load(train_path)
     valid = _load(valid_path)
 
-    # Формат prepare_data.py: {prompt, completion}. Переводим в ChatML messages.
-    def to_chatml(rec):
-        # System prompt уже в Spring backend; в training даём минимальную инструкцию.
-        return {
-            "messages": [
-                {"role": "user", "content": rec["prompt"]},
-                {"role": "assistant", "content": rec["completion"].strip()},
-            ]
-        }
+    def normalize(rec):
+        """Нормализует к ChatML формату — поддерживает 3 варианта input:
+        1. {messages: [{role, content}, ...]} — уже ChatML (от merge_datasets.py)
+        2. {prompt, completion} — старый формат (от prepare_data.py)
+        3. {instruction, input, output} — raw Alpaca формат (fallback)
+        """
+        if "messages" in rec:
+            return {"messages": rec["messages"]}
+        if "prompt" in rec and "completion" in rec:
+            return {
+                "messages": [
+                    {"role": "user", "content": rec["prompt"]},
+                    {"role": "assistant", "content": rec["completion"].strip()},
+                ]
+            }
+        if "instruction" in rec and "output" in rec:
+            instr = rec.get("instruction", "")
+            inp = rec.get("input", "")
+            prompt = f"{instr}\n\n{inp}" if inp and inp.strip() and inp != "nan" else instr
+            return {
+                "messages": [
+                    {"role": "user", "content": prompt},
+                    {"role": "assistant", "content": rec["output"].strip()},
+                ]
+            }
+        raise ValueError(f"Unknown record format. Keys: {list(rec.keys())}")
 
-    return Dataset.from_list([to_chatml(r) for r in train]), Dataset.from_list([to_chatml(r) for r in valid])
+    return Dataset.from_list([normalize(r) for r in train]), Dataset.from_list([normalize(r) for r in valid])
 
 
 def main():
@@ -201,7 +218,11 @@ def main():
     # 2. Датасет
     # ============================================================
     train_ds, valid_ds = load_dataset(Path(args.data))
-    print(f"=> Train: {len(train_ds)} | Valid: {len(valid_ds)}")
+    # Cap valid set — full eval каждые N шагов превращается в часы.
+    # 200 examples достаточно для стабильного val_loss сигнала, eval занимает ~5 мин.
+    if len(valid_ds) > 200:
+        valid_ds = valid_ds.shuffle(seed=42).select(range(200))
+    print(f"=> Train: {len(train_ds)} | Valid: {len(valid_ds)} (subsampled for eval speed)")
 
     # ============================================================
     # 3. SFTTrainer
