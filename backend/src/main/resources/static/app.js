@@ -12,7 +12,7 @@ const statusText = document.getElementById('statusText');
 let history = loadHistory();
 let isStreaming = false;
 
-modelSelect.value = localStorage.getItem(SELECTED_MODEL_KEY) || 'base';
+modelSelect.value = localStorage.getItem(SELECTED_MODEL_KEY) || 'v5';
 modelSelect.addEventListener('change', () => {
     localStorage.setItem(SELECTED_MODEL_KEY, modelSelect.value);
 });
@@ -43,9 +43,22 @@ newChatBtn.addEventListener('click', () => {
     if (isStreaming) return;
     history = [];
     saveHistory();
-    chatEl.innerHTML = '';
-    chatEl.appendChild(buildWelcome());
-    bindSuggestions();
+    window.location.href = '/';
+});
+
+// ── Auto-send prompt from landing page ?q= param ─────────────
+window.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const initialQ = params.get('q');
+    if (initialQ) {
+        history = [];
+        saveHistory();
+        history.replaceState({}, '', 'chat.html');
+        document.querySelector('.welcome')?.remove();
+        inputEl.value = initialQ;
+        autosize();
+        setTimeout(() => send(), 350);
+    }
 });
 
 async function send() {
