@@ -173,9 +173,35 @@ function updateMessage(el, text) {
 }
 
 function renderMarkdown(text) {
-    return escapeHtml(text)
-        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\n/g, '<br>');
+    // 1. Сохраняем код-блоки ДО экранирования HTML —
+    //    иначе escapeHtml испортит содержимое и regex не сработает.
+    const codeBlocks = [];
+    let result = text.replace(/```(\w*)\n?([\s\S]*?)```/g, (_, lang, code) => {
+        codeBlocks.push({ lang: lang || '', code: code.replace(/\n$/, '') });
+        return `\x02CODE${codeBlocks.length - 1}\x03`;
+    });
+
+    // 2. Экранируем HTML во всём остальном тексте
+    result = escapeHtml(result);
+
+    // 3. Inline-код: `однострочник`
+    result = result.replace(/`([^`\n]+)`/g, '<code>$1</code>');
+
+    // 4. Жирный текст **bold**
+    result = result.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+
+    // 5. Переносы строк → <br>
+    result = result.replace(/\n/g, '<br>');
+
+    // 6. Возвращаем код-блоки оформленными как <pre><code>
+    result = result.replace(/\x02CODE(\d+)\x03/g, (_, i) => {
+        const { lang, code } = codeBlocks[parseInt(i)];
+        const escaped = escapeHtml(code);
+        const label = lang ? `<span class="code-lang">${lang}</span>` : '';
+        return `<pre>${label}<code>${escaped}</code></pre>`;
+    });
+
+    return result;
 }
 
 function escapeHtml(s) {

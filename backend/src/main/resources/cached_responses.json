@@ -57,6 +57,86 @@
   },
   {
     "question": "Сені кім жасады",
-    "answer": "Мені KazGPT жобасының авторы жасады — IS студенті, бэкенд-разработчик. Жобаның негізі Qwen2.5 моделінде, ал қазақ тіліне бейімдеу үшін KazQAD (ISSAI, Назарбаев Университеті) деректер жиынтығы пайдаланылды."
+    "answer": "Мені **Кыдырбек Елдос** жасады — жас LLM/ML разработчик, Қазақстаннан.\n\nЕлдос — машиналық оқыту мен жасанды интеллект саласын белсенді түрде зерттеп жүрген бастаушы зерттеуші:\n• QLoRA fine-tuning арқылы Qwen2.5-7B негізінде KazGPT V5 жасаған\n• ML, терең оқыту, LLM тақырыптарын өз бетімен меңгеруде\n• Қазақ тілін цифрлық кеңістікте дамытуды мақсат еткен\n• Python, Spring Boot, Flutter стектерін пайдаланады\n\nKazGPT — Елдостың қазақ тілінде сөйлейтін жергілікті LLM жасауға деген алғашқы үлкен жобасы."
+  },
+  {
+    "question": "Қазақстанның астанасы қайда",
+    "answer": "Қазақстанның астанасы — Астана қаласы. Қала 1997 жылдан бастап астана болды. Бұрын Ақмола деп аталды, 2019–2022 жылдары Нұр-Сұлтан деген атпен белгілі болды. Есіл өзенінің жағасында орналасқан."
+  },
+  {
+    "question": "Астана қай жылдан астана",
+    "answer": "Астана 1997 жылдың 10 желтоқсанынан бастап Қазақстанның астанасы болды. Бұрынғы астана — Алматы."
+  },
+  {
+    "question": "Қазақстан қашан тәуелсіздік алды",
+    "answer": "Қазақстан 1991 жылдың 16 желтоқсанында тәуелсіздік алды. Бұл күн — Тәуелсіздік күні мерекесі ретінде атап өтіледі."
+  },
+  {
+    "question": "Қазақстанның халқы қанша",
+    "answer": "Қазақстанның халқы шамамен 20 миллион адам (2024 жылғы деректер бойынша)."
+  },
+  {
+    "question": "Қазақстанның валютасы",
+    "answer": "Қазақстанның ұлттық валютасы — теңге (KZT). 1993 жылдан айналымда."
+  },
+  {
+    "question": "Қазақстанның ресми тілі",
+    "answer": "Қазақстанның ресми мемлекеттік тілі — қазақ тілі. Орыс тілі де іс жүргізуде ресми түрде қолданылады."
+  },
+  {
+    "question": "Алматы астана ма",
+    "answer": "Жоқ, Алматы қазір астана емес. Алматы 1997 жылға дейін Қазақстанның астанасы болды. Қазіргі астана — Астана қаласы (бұрын Ақмола, 2019–2022 жж. Нұр-Сұлтан)."
+  },
+  {
+    "question": "Қазақстанның президенті кім",
+    "answer": "Қазақстанның президенті — Қасым-Жомарт Тоқаев. Ол 2019 жылдан бастап президент болып табылады."
+  },
+  {
+    "question": "KazGPT не істей алады",
+    "answer": "Мен KazGPT — қазақ тілінде жауап беретін жасанды интеллект. Мен: сұрақтарға жауап беремін, мәтін жазуға көмектесемін, ақпарат іздеуге қолдаймын, код жазуды түсіндіремін, аудармаға және қазақ тілін үйренуге көмек беремін."
+  },
+  {
+    "question": "Авторы кім",
+    "answer": "KazGPT жобасының авторы — **Кыдырбек Елдос**, жас LLM/ML разработчик Қазақстаннан. Ол машиналық оқыту мен жасанды интеллект саласын белсенді түрде зерттеп, Qwen2.5-7B негізінде QLoRA fine-tuning арқылы KazGPT V5 жасаған. Мақсаты — қазақ тілінде сөйлейтін жергілікті жасанды интеллектіні дамыту."
+  },
+  {
+    "question": "Кыдырбек Елдос кім",
+    "answer": "**Кыдырбек Елдос** — Қазақстандағы жас LLM/ML разработчик.\n\n**Негізгі бағыттары:**\n• Машиналық оқыту мен терең оқытуды белсенді зерттеуде\n• LLM fine-tuning: QLoRA, LoRA, unsloth фреймворктары\n• KazGPT жобасының авторы — қазақ тілі үшін жергілікті AI\n• Бэкенд: Spring Boot (Java), API дизайны\n• Мобильді: Flutter (Dart)\n• ML стек: Python, PyTorch, Hugging Face, Google Colab\n\nЕлдос ML-ді жаңадан бастаған, бірақ қысқа уақытта 7B параметрлік модельді fine-tune жасауға жетті — бұл бастаушы үшін үлкен жетістік."
+  },
+  {
+    "question": "Автор туралы айт",
+    "answer": "KazGPT жобасын **Кыдырбек Елдос** жасады — Қазақстандық жас ML/LLM разработчик. Ол Qwen2.5-7B моделін KazQAD деректер жиынымен QLoRA арқылы fine-tune жасап, қазақ тілінде сөйлейтін KazGPT V5 жасады. Spring Boot бэкенд, Flutter мобильді қосымша және Ollama локальды inference — барлығын өз бетімен қосты."
+  },
+  {
+    "question": "Python-да Сәлем әлем деп шығар",
+    "answer": "```python\nprint(\"Сәлем, әлем!\")\n```\nБұл Python-дағы ең қарапайым бағдарлама. `print()` функциясы мәтінді экранға шығарады."
+  },
+  {
+    "question": "Python-да функция қалай жазады",
+    "answer": "Python-да функция `def` кілт сөзімен жазылады:\n\n```python\n# Қарапайым функция мысалы\ndef сәлемдес(ат):\n    return f\"Сәлем, {ат}!\"\n\n# Функцияны шақыру\nnәтиже = сәлемдес(\"Елдос\")\nprint(нәтиже)  # Сәлем, Елдос!\n```\n\n`def` — функцияны анықтайды, `return` — нәтижені қайтарады."
+  },
+  {
+    "question": "Python-да цикл қалай жазады",
+    "answer": "Python-да екі негізгі цикл бар:\n\n```python\n# for цикл — белгілі рет\nfor i in range(5):\n    print(f\"{i + 1}-қадам\")\n\n# while цикл — шарт дұрыс болса\nсанауыш = 0\nwhile санауыш < 3:\n    print(f\"Санауыш: {санауыш}\")\n    санауыш += 1\n```"
+  },
+  {
+    "question": "Python-да тізім дегеніміз не",
+    "answer": "Python тізімі (list) — бірнеше мәнді бір айнымалыда сақтайды:\n\n```python\n# Тізім жасау\nтілдер = [\"Python\", \"Java\", \"Dart\", \"Rust\"]\n\n# Элементтерді шығару\nfor тіл in тілдер:\n    print(тіл)\n\n# Тізімге қосу\nтілдер.append(\"Go\")\nprint(f\"Барлығы: {len(тілдер)} тіл\")\n```"
+  },
+  {
+    "question": "ML үшін Python кітапханалары қандай",
+    "answer": "Машиналық оқыту үшін Python-дың негізгі кітапханалары:\n\n```python\nimport numpy as np        # Матрицалар мен санақтар\nimport pandas as pd       # Деректер жиынын өңдеу\nimport matplotlib.pyplot as plt  # Графиктер\nfrom sklearn.linear_model import LinearRegression  # ML модельдер\nimport torch              # Терең оқыту (PyTorch)\nfrom transformers import AutoModelForCausalLM  # LLM модельдер\n```\n\n**Орнату:** `pip install numpy pandas matplotlib scikit-learn torch transformers`"
+  },
+  {
+    "question": "Python-да ML моделін қалай жазады",
+    "answer": "sklearn арқылы қарапайым ML моделі:\n\n```python\nimport numpy as np\nfrom sklearn.linear_model import LinearRegression\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.metrics import mean_squared_error\n\n# 1. Деректер жиыны\nX = np.array([[1], [2], [3], [4], [5], [6], [7], [8]])\ny = np.array([2, 4, 6, 8, 10, 12, 14, 16])\n\n# 2. Оқыту/тексеру бөлу\nX_train, X_test, y_train, y_test = train_test_split(\n    X, y, test_size=0.2, random_state=42\n)\n\n# 3. Модельді оқыту\nmodel = LinearRegression()\nmodel.fit(X_train, y_train)\n\n# 4. Болжам\ny_pred = model.predict(X_test)\nprint(f\"MSE қатесі: {mean_squared_error(y_test, y_pred):.4f}\")\nprint(f\"9 үшін болжам: {model.predict([[9]])[0]:.1f}\")\n```"
+  },
+  {
+    "question": "Python-да нейрондық желі жаз",
+    "answer": "PyTorch арқылы қарапайым нейрондық желі:\n\n```python\nimport torch\nimport torch.nn as nn\n\n# 1. Модель архитектурасы\nclass NeyronZheli(nn.Module):\n    def __init__(self):\n        super().__init__()\n        self.layers = nn.Sequential(\n            nn.Linear(2, 16),   # кіріс → жасырын қабат\n            nn.ReLU(),\n            nn.Linear(16, 1),   # жасырын → шығыс\n            nn.Sigmoid()\n        )\n\n    def forward(self, x):\n        return self.layers(x)\n\n# 2. Модель жасау\nmodel = NeyronZheli()\nprint(model)\n\n# 3. XOR мысалы\nX = torch.tensor([[0,0],[0,1],[1,0],[1,1]], dtype=torch.float32)\ny = torch.tensor([[0],[1],[1],[0]], dtype=torch.float32)\n\noptimizer = torch.optim.Adam(model.parameters(), lr=0.01)\nloss_fn = nn.BCELoss()\n\nfor epoch in range(1000):\n    pred = model(X)\n    loss = loss_fn(pred, y)\n    optimizer.zero_grad()\n    loss.backward()\n    optimizer.step()\n\nprint(f\"Соңғы loss: {loss.item():.4f}\")\n```"
+  },
+  {
+    "question": "Python-да if else",
+    "answer": "Python-да шарттар:\n\n```python\nжас = 20\n\nif жас >= 18:\n    print(\"Кәмелетке жеткен\")\nelif жас >= 13:\n    print(\"Жасөспірім\")\nelse:\n    print(\"Бала\")\n\n# Бір жолда (ternary)\nнәтиже = \"ересек\" if жас >= 18 else \"жас\"\nprint(нәтиже)\n```"
   }
 ]

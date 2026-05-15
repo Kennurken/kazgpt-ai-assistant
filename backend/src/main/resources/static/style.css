@@ -207,6 +207,47 @@ main.chat {
 
 .bubble strong { color: var(--accent); }
 
+/* Блоки кода */
+.bubble pre {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 10px 0;
+    overflow-x: auto;
+    white-space: pre;
+    font-size: 13px;
+    line-height: 1.6;
+}
+.bubble pre code {
+    font-family: 'Fira Code', 'Cascadia Code', 'Consolas', 'Monaco', monospace;
+    color: #e6edf3;
+    background: none;
+    padding: 0;
+    border: none;
+    font-size: 13px;
+}
+/* Инлайн-код */
+.bubble code {
+    background: rgba(110, 118, 129, 0.15);
+    border: 1px solid rgba(110, 118, 129, 0.3);
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 13px;
+    color: #79c0ff;
+}
+/* Метка языка (python, js...) */
+.code-lang {
+    display: block;
+    font-size: 11px;
+    color: #8b949e;
+    margin-bottom: 8px;
+    font-family: monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
 .composer {
     padding: 16px 24px 20px;
     border-top: 1px solid var(--border);

@@ -45,12 +45,17 @@ public class ChatService {
     }
 
     public Flux<String> streamChat(ChatRequest req) {
+        // Кэш фактов: всегда проверяем ПЕРВЫМ — приоритетные ответы исключают
+        // галлюцинации для известных фактических вопросов (астана, тарих и т.д.)
+        Optional<CachedResponse> cached = cacheService.findMatch(req.message());
+        if (cached.isPresent()) {
+            log.info("Fact-cache hit for: {}", truncate(req.message(), 50));
+            return streamFromCache(cached.get().answer());
+        }
+
         if (props.isDemoMode()) {
-            Optional<CachedResponse> cached = cacheService.findMatch(req.message());
-            if (cached.isPresent()) {
-                log.info("Demo-mode cache hit for: {}", truncate(req.message(), 50));
-                return streamFromCache(cached.get().answer());
-            }
+            // Demo-режим без кэша: не гонять реальную модель
+            return streamFromCache("Кешіріңіз, demo-режимде бұл сұрақ қолжетімсіз.");
         }
 
         String modelKey = req.resolvedModel();
