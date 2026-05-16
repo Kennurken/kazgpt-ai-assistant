@@ -1,94 +1,101 @@
 <!DOCTYPE html>
 <html lang="kk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KazGPT — Қазақ тіліндегі жасанды интеллект</title>
-    <link rel="stylesheet" href="landing.css">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KazGPT</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body>
-    <div class="aurora" aria-hidden="true">
-        <div class="aurora-blob aurora-blob--1"></div>
-        <div class="aurora-blob aurora-blob--2"></div>
-        <div class="aurora-blob aurora-blob--3"></div>
+<div class="app" id="app">
+
+  <!-- ── Background ── -->
+  <div class="bg" aria-hidden="true">
+    <div class="bg-mesh"></div>
+    <div class="bg-orb bg-orb--a"></div>
+    <div class="bg-orb bg-orb--b"></div>
+    <div class="bg-orb bg-orb--c"></div>
+    <div class="bg-grid"></div>
+    <div class="bg-vignette"></div>
+  </div>
+
+  <!-- ── Header ── -->
+  <header class="header" id="header">
+    <a class="logo" href="/" id="logoLink">
+      <span class="logo-flag">🇰🇿</span>
+      <span class="logo-word">Kaz<em>GPT</em></span>
+    </a>
+    <div class="header-mid" id="headerMid">
+      <!-- model selector appears in chat mode -->
     </div>
-    <div class="grid-overlay" aria-hidden="true"></div>
+    <div class="header-right">
+      <div class="status-pill" id="statusPill">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">...</span>
+      </div>
+      <a class="icon-btn" href="https://github.com/Kennurken/kazgpt-ai-assistant" target="_blank" title="GitHub">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+      </a>
+      <button class="icon-btn" id="newChatBtn" title="Жаңа сұхбат" style="display:none">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
+      </button>
+    </div>
+  </header>
 
-    <nav class="nav">
-        <div class="nav-logo">
-            <span class="nav-flag">🇰🇿</span>
-            <span class="nav-name">Kaz<span class="grad">GPT</span></span>
+  <!-- ── Landing hero ── -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        V5 · QLoRA · Qwen2.5-7B · 4.4 GB
+      </div>
+      <div class="hero-title">
+        <span class="hero-flag">🇰🇿</span>
+        <h1>Kaz<em>GPT</em></h1>
+      </div>
+      <p class="hero-sub" id="heroSub">&nbsp;</p>
+      <div class="hero-chips" id="heroChips">
+        <button class="chip" data-q="Сәлем! KazGPT туралы айтып бер">👋 KazGPT туралы</button>
+        <button class="chip" data-q="Алматы қаласы туралы қысқаша мәлімет бер">🏙️ Алматы</button>
+        <button class="chip" data-q="Нейрондық желі дегеніміз не? Қарапайым тілмен">🧠 Нейрондық желі</button>
+        <button class="chip" data-q="Қазақстан туралы 5 қызықты факт айт">🌟 Қазақстан фактілері</button>
+        <button class="chip" data-q="Python тілінде fibonacci санын есептеу кодын жаз">💻 Python коды</button>
+        <button class="chip" data-q="ML мен AI айырмашылығы неде?">🤖 ML vs AI</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Chat messages ── -->
+  <main class="messages" id="messages"></main>
+
+  <!-- ── Composer ── -->
+  <div class="composer" id="composer">
+    <div class="composer-inner">
+      <div class="composer-box" id="composerBox">
+        <textarea id="input" placeholder="Сұрағыңызды жазыңыз..." rows="1"></textarea>
+        <div class="composer-controls">
+          <select id="modelSelect" class="model-select">
+            <option value="v5">⚡ KazGPT V5</option>
+            <option value="base">🔷 Qwen2.5</option>
+          </select>
+          <button id="sendBtn" class="send-btn" disabled>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M2 12l20-9-9 20-2-9-9-2z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" fill="currentColor"/>
+            </svg>
+          </button>
         </div>
-        <div class="nav-right">
-            <a class="nav-link" href="https://github.com/Kennurken/kazgpt-ai-assistant" target="_blank" rel="noopener">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
-                GitHub
-            </a>
-            <div class="nav-status">
-                <span class="status-dot" id="navStatus"></span>
-                <span id="navStatusText">Тексеру...</span>
-            </div>
-        </div>
-    </nav>
+      </div>
+      <p class="composer-hint">Enter — жіберу &nbsp;·&nbsp; Shift+Enter — жаңа жол</p>
+    </div>
+  </div>
 
-    <main class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">
-                <span class="badge-pulse"></span>
-                KazGPT V5 &nbsp;·&nbsp; QLoRA Fine-tuned &nbsp;·&nbsp; 4.4 GB GGUF
-            </div>
+  <!-- ── Footer (landing only) ── -->
+  <footer class="footer" id="footer">
+    © 2025–2026 <strong>Қыдырбек Елдос</strong> · Korkyt Ata University
+  </footer>
 
-            <div class="hero-logo">
-                <span class="logo-flag">🇰🇿</span>
-                <h1 class="logo-text">Kaz<span class="logo-grad">GPT</span></h1>
-            </div>
-
-            <p class="hero-tagline" id="tagline">&nbsp;</p>
-
-            <div class="prompt-card" id="promptCard">
-                <div class="prompt-wrap">
-                    <textarea id="promptInput" class="prompt-input" placeholder="Сұрағыңызды жазыңыз..." rows="1" autofocus></textarea>
-                    <div class="prompt-actions">
-                        <select id="modelSelect" class="model-pill">
-                            <option value="v5">⚡ KazGPT V5</option>
-                            <option value="base">🔷 Qwen2.5 Base</option>
-                        </select>
-                        <button id="sendBtn" class="send-fab" title="Жіберу">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                <path d="M2 12l20-9-9 20-2-9-9-2z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" fill="currentColor"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="prompt-meta">
-                    <span>Enter — жіберу &nbsp;·&nbsp; Shift+Enter — жаңа жол</span>
-                </div>
-            </div>
-
-            <p class="suggest-label">Мысалдар</p>
-            <div class="chips">
-                <button class="chip" data-q="Сәлем! KazGPT туралы айтып бер">👋 KazGPT туралы</button>
-                <button class="chip" data-q="Алматы қаласы туралы қысқаша мәлімет бер">🏙️ Алматы</button>
-                <button class="chip" data-q="Нейрондық желі дегеніміз не? Қарапайым тілмен түсіндір">🧠 Нейрондық желі</button>
-                <button class="chip" data-q="Қазақстан туралы 5 қызықты факт айт">🌟 Қызықты фактілер</button>
-                <button class="chip" data-q="Python тілінде fibonacci санын есептеу кодын жаз">💻 Python коды</button>
-                <button class="chip" data-q="Машиналық оқыту мен жасанды интеллект айырмашылығы неде?">🤖 ML vs AI</button>
-            </div>
-
-            <div class="features">
-                <span class="feat">🔒 100% локальды</span>
-                <span class="feat">📡 Интернетсіз</span>
-                <span class="feat">🇰🇿 Қазақ тілі</span>
-                <span class="feat">⚡ Apple Silicon</span>
-            </div>
-        </div>
-    </main>
-
-    <footer class="footer">
-        © 2025–2026 <strong>Қыдырбек Елдос</strong> · Korkyt Ata University · All rights reserved
-    </footer>
-
-    <script src="landing.js"></script>
+</div>
+<script src="main.js"></script>
 </body>
 </html>
